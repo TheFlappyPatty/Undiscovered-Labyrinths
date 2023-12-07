@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -12,12 +14,16 @@ public class Player : MonoBehaviour
     public CharacterController PlayerController;
     public Rigidbody Playerrig;
     private bool ControllerConnected;
+    public bool InEncounter;
+
     [Space]
     //Player stats
     [Header("Player stats")]
     public int Ammo;
     public int Health;
+    public Image HealthBar;
     private bool shooting = true;
+    public static GameObject Checkpoint;
     public Rounds WeaponCurrent;
 
     [Space]
@@ -52,6 +58,8 @@ public class Player : MonoBehaviour
     }
     public void Update()
     {
+        HealthBar.fillAmount = Health;
+
         if(ControllerConnected == false) {
             var MoveDir = new Vector3(Input.GetAxis("Horizontal") * MovementSpeed, -1, Input.GetAxis("Vertical") * MovementSpeed);
             PlayerController.Move(MoveDir * Time.deltaTime);
@@ -73,6 +81,21 @@ public class Player : MonoBehaviour
                 shooting = false;
             }
         }
+
+        if (Health <=0)
+        {
+            die();
+        }
+        if (InEncounter)
+        {
+
+        }
+        else
+        {
+            var Campos = new Vector3(transform.localPosition.x,transform.localPosition.y + 16f,transform.localPosition.z - 13f);
+            playerCam.transform.localPosition = Campos;
+        }
+
         if (Playerrig.velocity.magnitude > speedCap)
         {
             Playerrig.velocity = Playerrig.velocity.normalized * speedCap;
@@ -97,9 +120,10 @@ public class Player : MonoBehaviour
             shooting = true;
         } else {
             shooting = false;
-            var bullet = Instantiate(StandardAmmo, transform.position, transform.rotation, null);
+            var bullet = Instantiate(StandardAmmo, transform.position,transform.rotation, null);
             bullet.gameObject.GetComponent<Bullets>().Type = Ammotype;
             bullet.gameObject.GetComponent<Bullets>().bulletspeed = velocity;
+            if (gun == Gun.MiniGun) bullet.transform.eulerAngles = new Vector3(bullet.transform.eulerAngles.x, bullet.transform.eulerAngles.y + Random.Range(-10, 10), bullet.transform.eulerAngles.z);
             bullet.gameObject.GetComponent<Bullets>().lifetime = lifetime;
             bullet.gameObject.GetComponent<Bullets>().Damage = Damage;
             Ammo -= 1;
@@ -114,6 +138,12 @@ public class Player : MonoBehaviour
             }
             RestoreDefault();
         }
+    }
+    public void die()
+    {
+        RestoreDefault();
+        SceneManager.LoadScene(0);
+        gameObject.transform.position = Checkpoint.transform.position;
     }
     public void RestoreDefault()
     {

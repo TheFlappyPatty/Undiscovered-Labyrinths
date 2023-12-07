@@ -8,7 +8,7 @@ public class Weaponscript : MonoBehaviour
     private GameObject player;
     public void Awake()
     {
-        var RandomInput = Random.Range(1, 3);
+        var RandomInput = Random.Range(1, 4);
         if (RandomInput == 1)
         {
             WeaponGrab = Gun.LazerBeam;
@@ -35,18 +35,18 @@ public class Weaponscript : MonoBehaviour
     {
         if(WeaponGrab == Gun.LazerBeam)
         {
-            player.GetComponent<Player>().Pickedupweapon(Rounds.lazar,0,2,0,10,Gun.LazerBeam);
-            player.GetComponent<Player>().Ammo = 1200;
+            player.GetComponent<Player>().Pickedupweapon(Rounds.lazar,0,4,0,10,Gun.LazerBeam);
+            player.GetComponent<Player>().Ammo = 300;
         }
         if(WeaponGrab == Gun.MiniGun)
         {
-            player.GetComponent<Player>().Pickedupweapon(Rounds.standard, 1200, 5, 30, 15,Gun.MiniGun);
-            player.GetComponent<Player>().Ammo = 150;
+            player.GetComponent<Player>().Pickedupweapon(Rounds.standard, 2400, 10, 30, 15,Gun.MiniGun);
+            player.GetComponent<Player>().Ammo = 400;
         }
         if (WeaponGrab == Gun.Grenade_Launcher)
         {
-            player.GetComponent<Player>().Pickedupweapon(Rounds.Explosive, 40, 50, 6, 30,Gun.Grenade_Launcher);
-            player.GetComponent<Player>().Ammo = 12;
+            player.GetComponent<Player>().Pickedupweapon(Rounds.Explosive, 40, 50, 8, 30,Gun.Grenade_Launcher);
+            player.GetComponent<Player>().Ammo = 6;
         }
     }
 
