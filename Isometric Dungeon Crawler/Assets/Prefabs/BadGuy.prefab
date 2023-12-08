@@ -120,7 +120,7 @@ MonoBehaviour:
   player: {fileID: 0}
   Encounter: {fileID: 0}
   WeaponDrop: {fileID: 5777707470653275400, guid: a7e600c71b9244a4587ffde6baa5179e, type: 3}
-  HealthDrop: {fileID: 5777707470653275400, guid: a7e600c71b9244a4587ffde6baa5179e, type: 3}
+  HealthDrop: {fileID: 9011156466791870750, guid: 04edb67bb34a8514b859168fe00f907d, type: 3}
 --- !u!195 &4648020056079975780
 NavMeshAgent:
   m_ObjectHideFlags: 0

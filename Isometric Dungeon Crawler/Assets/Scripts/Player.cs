@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     //Player stats
     [Header("Player stats")]
     public int Ammo;
-    public int Health;
+    public float Health;
     public Image HealthBar;
     private bool shooting = true;
     public static GameObject Checkpoint;
@@ -58,8 +58,9 @@ public class Player : MonoBehaviour
     }
     public void Update()
     {
-        HealthBar.fillAmount = Health;
-
+        
+        HealthBar.fillAmount = Health/100;
+        Health = Mathf.Clamp(Health, 0, 100);
         if(ControllerConnected == false) {
             var MoveDir = new Vector3(Input.GetAxis("Horizontal") * MovementSpeed, -1, Input.GetAxis("Vertical") * MovementSpeed);
             PlayerController.Move(MoveDir * Time.deltaTime);

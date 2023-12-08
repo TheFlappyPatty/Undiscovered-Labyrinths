@@ -35,10 +35,10 @@ public class EnemyAi : MonoBehaviour
         if (Health <= 0)
         {
             var random = Random.Range(0,100);
-            if(random > 95)
+            if(random > 90)
             {
                 var randombuff = Random.Range(0, 100);
-                if (randombuff > 70)
+                if (randombuff > 60)
                 {
                     Instantiate(WeaponDrop, transform.position, Quaternion.identity, null);
                 }
