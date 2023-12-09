@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3319307077849324212}
   - component: {fileID: 5122326872102310717}
   - component: {fileID: 7233936010854790450}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Meds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5271538012513611402}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MEdDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -28,7 +28,7 @@ public class EnemyAi : MonoBehaviour
         {
         Controlpoint.destination = player.transform.position;
         }
-        if (Vector3.Distance(player.transform.position, transform.position) < 1)
+        if (Vector3.Distance(player.transform.position, transform.position) < 2)
         {
             StartCoroutine(attack());
         }
@@ -63,7 +63,7 @@ public class EnemyAi : MonoBehaviour
         {
             Cooldown = true;
             player.GetComponent<Player>().Health -= Damage;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.5f);
             Cooldown = false;
         }
     }

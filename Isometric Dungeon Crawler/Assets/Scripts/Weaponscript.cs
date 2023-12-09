@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// this script does things
 public class Weaponscript : MonoBehaviour
 {
     public Gun WeaponGrab;
@@ -35,7 +36,7 @@ public class Weaponscript : MonoBehaviour
     {
         if(WeaponGrab == Gun.LazerBeam)
         {
-            player.GetComponent<Player>().Pickedupweapon(Rounds.lazar,0,2,0,10,Gun.LazerBeam);
+            player.GetComponent<Player>().Pickedupweapon(Rounds.lazar,0,10,0,10,Gun.LazerBeam);
             player.GetComponent<Player>().Ammo = 300;
         }
         if(WeaponGrab == Gun.MiniGun)
@@ -46,7 +47,7 @@ public class Weaponscript : MonoBehaviour
         if (WeaponGrab == Gun.Grenade_Launcher)
         {
             player.GetComponent<Player>().Pickedupweapon(Rounds.Explosive, 60, 50, 12, 30,Gun.Grenade_Launcher);
-            player.GetComponent<Player>().Ammo = 6;
+            player.GetComponent<Player>().Ammo = 8;
         }
     }
 

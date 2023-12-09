@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public float Health;
     public Image HealthBar;
     private bool shooting = true;
-    public static GameObject Checkpoint;
+    public static string Checkpoint;
     public Rounds WeaponCurrent;
 
     [Space]
@@ -47,6 +47,10 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
+        if (Checkpoint != null)
+        {
+            gameObject.transform.position = GameObject.Find(Checkpoint).transform.position;
+        }
         if (Input.GetJoystickNames().Length == 0)
         {
             ControllerConnected = false;
@@ -54,6 +58,10 @@ public class Player : MonoBehaviour
         {
             ControllerConnected = true;
         }
+
+    }
+    public void Awake()
+    {
 
     }
     public void Update()
@@ -102,6 +110,9 @@ public class Player : MonoBehaviour
             Playerrig.velocity = Playerrig.velocity.normalized * speedCap;
         }
     }
+
+
+    //When the player shoots the gun
     public IEnumerator Shooting(Rounds Ammotype,float fireRate,int Damage,int velocity,float lifetime)
     {
      if (Rounds.lazar == Ammotype) {
@@ -113,7 +124,7 @@ public class Player : MonoBehaviour
                 GetComponent<LineRenderer>().SetPosition(1,target.point);
                 if (target.collider.tag == "Enemy")
                 {
-               target.transform.gameObject.GetComponent<EnemyAi>().Health -= 50;
+               target.transform.gameObject.GetComponent<EnemyAi>().Health -= Damage;
                 }
             }
             Ammo -= 1;
@@ -140,12 +151,15 @@ public class Player : MonoBehaviour
             RestoreDefault();
         }
     }
+
+    //when the player dies
     public void die()
     {
         RestoreDefault();
         SceneManager.LoadScene(0);
-        gameObject.transform.position = Checkpoint.transform.position;
     }
+
+    //resets the gun to defaults
     public void RestoreDefault()
     {
         WeaponCurrent = Currentammo;
@@ -157,6 +171,11 @@ public class Player : MonoBehaviour
       defaultisequiped = true;
         gun = Gun.None;
     }
+
+
+
+
+    //Defines weapon stats and ammoType
     public void Pickedupweapon(Rounds ammotype, float Firerate, int Damage, int Velocity, float Lifetime,Gun pew)
     {
         WeaponCurrent = ammotype;
@@ -170,10 +189,10 @@ public class Player : MonoBehaviour
         if(ammotype == Rounds.lazar)
         {
             gameObject.AddComponent<LineRenderer>();
-            gameObject.GetComponent<LineRenderer>().startColor = Color.black;
-            gameObject.GetComponent<LineRenderer>().endColor = Color.black;
-            gameObject.GetComponent<LineRenderer>().startWidth = 0.05f;
-            gameObject.GetComponent<LineRenderer>().endWidth = 0.05f;
+            gameObject.GetComponent<LineRenderer>().startColor = Color.white;
+            gameObject.GetComponent<LineRenderer>().endColor = Color.red;
+            gameObject.GetComponent<LineRenderer>().startWidth = 0.1f;
+            gameObject.GetComponent<LineRenderer>().endWidth = 0.1f;
             gameObject.GetComponent<LineRenderer>().positionCount = 2;
             gameObject.GetComponent<LineRenderer>().useWorldSpace = true;
             gameObject.GetComponent<LineRenderer>().material = LaserTexture;
