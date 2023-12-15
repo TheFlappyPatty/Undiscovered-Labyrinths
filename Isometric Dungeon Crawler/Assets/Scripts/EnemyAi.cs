@@ -52,7 +52,8 @@ public class EnemyAi : MonoBehaviour
                 Destroy(gameObject);
             } else
             {
-                Encounter.GetComponent<EncounterToggle>().EnemiesAlive--;
+                if(Encounter.GetComponent<EncounterToggle>() != null) Encounter.GetComponent<EncounterToggle>().EnemiesAlive--;
+                if(Encounter.GetComponent<BossScript>() != null) Encounter.GetComponent<BossScript>().enemyamountleft--;
                 Destroy(gameObject);
             }
         }

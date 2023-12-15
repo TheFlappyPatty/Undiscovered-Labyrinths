@@ -8,6 +8,7 @@ public class Bullets : MonoBehaviour
     public int Damage;
     public float lifetime = 10;
     public Rounds Type;
+    public Gun weapion;
     public void Awake()
     {
         StartCoroutine(Bulletlife());
@@ -26,7 +27,6 @@ public class Bullets : MonoBehaviour
             }
             if (Type == Rounds.Explosive)
             {
-
                 foreach (GameObject G in GameObject.FindGameObjectsWithTag("Enemy"))
                 {
                     if (Vector3.Distance(G.transform.position, transform.position) < 5)
@@ -34,10 +34,35 @@ public class Bullets : MonoBehaviour
                         G.GetComponent<EnemyAi>().Health -= Damage;
                     }
                 }
+                foreach (GameObject G in GameObject.FindGameObjectsWithTag("Pillar"))
+                {
+                    if (Vector3.Distance(G.transform.position, transform.position) < 5)
+                    {
+                        BossScript.bossHealth -= Damage;
+                    }
+                }
                 Destroy(gameObject);
             }
             Destroy(gameObject);
+
         }
+
+
+
+
+
+        if(collision.transform.tag == "Pillar")
+        {
+            if (collision.gameObject.GetComponentInParent<PillarScript>().active == true)
+            {
+                BossScript.bossHealth -= Damage;
+            }
+        }
+        if(weapion != Gun.MiniGun)
+        {
+        Destroy(gameObject);
+        }
+
     }
     public IEnumerator Bulletlife()
     {

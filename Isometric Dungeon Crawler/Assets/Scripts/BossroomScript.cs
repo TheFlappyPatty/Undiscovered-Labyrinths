@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossroomScript : MonoBehaviour
 {
+    public GameObject Boss;
     public GameObject Door;
     public bool Closed;
     public bool closing;
@@ -33,6 +34,7 @@ public class BossroomScript : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             Close();
+            Boss.GetComponent<BossScript>().StartFight(other.gameObject);
         }
     }
 }

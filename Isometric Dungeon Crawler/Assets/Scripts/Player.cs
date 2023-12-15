@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public float Health;
     public Image HealthBar;
     private bool shooting = true;
-    public static string Checkpoint;
+    public static Vector3 Checkpoint;
     public Rounds WeaponCurrent;
 
     [Space]
@@ -47,9 +47,9 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
-        if (Checkpoint != null)
+        if (Checkpoint != new Vector3(0,0,0))
         {
-            gameObject.transform.position = GameObject.Find(Checkpoint).transform.position;
+            gameObject.transform.position = Checkpoint;
         }
         if (Input.GetJoystickNames().Length == 0)
         {
@@ -75,7 +75,12 @@ public class Player : MonoBehaviour
 
             gameObject.transform.eulerAngles = new Vector3(0, dummypoint.transform.eulerAngles.y, 0);
             dummypoint.transform.LookAt(mousepoint.transform.position);
-            mousepoint.transform.position = playerCam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 20));
+            mousepoint.transform.position = playerCam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 50));
+            if (Input.GetAxis("Fire1") == 1 && shooting == true)
+            {
+                StartCoroutine(Shooting(Currentammo, CurrentFirerate, CurrentDamage, CurrentVelocity, CurrentlifeTime));
+                shooting = false;
+            }
         }
         else
         {
@@ -126,6 +131,10 @@ public class Player : MonoBehaviour
                 {
                target.transform.gameObject.GetComponent<EnemyAi>().Health -= Damage;
                 }
+                //if (target.collider.tag == "Pillar" && target.collider.gameObject.GetComponent<PillarScript>().active == true)
+                //{
+                //    BossScript.bossHealth -= Damage;
+                //}
             }
             Ammo -= 1;
             yield return new WaitForSeconds(0.05f);
@@ -138,6 +147,7 @@ public class Player : MonoBehaviour
             if (gun == Gun.MiniGun) bullet.transform.eulerAngles = new Vector3(bullet.transform.eulerAngles.x, bullet.transform.eulerAngles.y + Random.Range(-10, 10), bullet.transform.eulerAngles.z);
             bullet.gameObject.GetComponent<Bullets>().lifetime = lifetime;
             bullet.gameObject.GetComponent<Bullets>().Damage = Damage;
+            bullet.gameObject.GetComponent<Bullets>().weapion = gun;
             Ammo -= 1;
             yield return new WaitForSeconds(60 / fireRate);
             shooting = true;

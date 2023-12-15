@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2358202906791050344}
   m_Layer: 6
   m_Name: StandardRound
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,6 +134,7 @@ MonoBehaviour:
   Damage: 0
   lifetime: 10
   Type: 0
+  weapion: 0
 --- !u!136 &2990594280479806267
 CapsuleCollider:
   m_ObjectHideFlags: 0
