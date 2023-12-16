@@ -1,7 +1,7 @@
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossScript : MonoBehaviour
 {
@@ -40,7 +40,10 @@ public class BossScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(bossHealth);
+        if(bossHealth <= 0)
+        {
+            SceneManager.LoadScene(1);
+        }
         if(fight == true)
         {
             if (stage == 1)
@@ -54,8 +57,24 @@ public class BossScript : MonoBehaviour
             }
         }
     }
+    private bool shooting = true;
+    private bool stalltime = true;
     public IEnumerator Stage1()
     {
+        //The bosses Shooting attack
+        if(shooting == true)
+        {
+            if(stalltime == true)
+            {
+                stalltime = false;
+         var bullet = Instantiate(EnemyBullet,gameObject.transform.position,Quaternion.identity,null);
+                bullet.GetComponent<EnemyBulletScript>().Player = playerc;
+            yield return new WaitForSeconds(2);
+                stalltime = true;
+            }
+        }
+
+        //Enemies the boss spawns
         if (Spawnenemyamount >= enemyamountleft)
         {
             while (Spawnenemyamount >= enemyamountleft)
@@ -66,15 +85,30 @@ public class BossScript : MonoBehaviour
                 yield return new WaitForSeconds(0.05f);
             }
         }
+        //When to go to the next stage
         if (bossHealth <= 5000)
         {
             stage = 2;
         }
+
     }
     private bool wait = true;
     private bool hold = true;
     public IEnumerator Stage2()
     {
+        //Shooting
+        if (shooting == true)
+        {
+            if (stalltime == true)
+            {
+                stalltime = false;
+                var bullet = Instantiate(EnemyBullet, gameObject.transform.position, Quaternion.identity, null);
+                bullet.GetComponent<EnemyBulletScript>().Player = playerc;
+                yield return new WaitForSeconds(1);
+                stalltime = true;
+            }
+        }
+        //spawning
         if (Spawnenemyamount >= enemyamountleft)
         {
             while (Spawnenemyamount >= enemyamountleft)
@@ -84,13 +118,17 @@ public class BossScript : MonoBehaviour
                 enemyamountleft++;
             }
         }
+        //When the boss moves
         if (wait == true)
         {
             move();
             wait = false;
-            yield return new WaitForSeconds(40);
+            yield return new WaitForSeconds(20);
             wait = true;
         }
+
+
+        //For when the boss is dead
         if (bossHealth >= 0)
         {
 
@@ -105,7 +143,7 @@ public class BossScript : MonoBehaviour
 
         }
     }
-
+    //Handles everything related to the boss moving
     public void move()
     {
         currentpillar.GetComponentInChildren<PillarScript>().active = false;
@@ -115,6 +153,7 @@ public class BossScript : MonoBehaviour
         currentpillar.GetComponentInChildren<PillarScript>().active = true;
         currentpillar.GetComponentInChildren<PillarScript>().boss = gameObject;
     }
+    //when the player Starts the fight
     public void StartFight(GameObject player)
     {
         playerc = player;

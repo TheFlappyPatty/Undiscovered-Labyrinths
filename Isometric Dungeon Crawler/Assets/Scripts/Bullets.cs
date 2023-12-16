@@ -34,7 +34,7 @@ public class Bullets : MonoBehaviour
                         G.GetComponent<EnemyAi>().Health -= Damage;
                     }
                 }
-                foreach (GameObject G in GameObject.FindGameObjectsWithTag("Pillar"))
+                foreach (GameObject G in GameObject.FindGameObjectsWithTag("ActivePillar"))
                 {
                     if (Vector3.Distance(G.transform.position, transform.position) < 5)
                     {
@@ -51,12 +51,9 @@ public class Bullets : MonoBehaviour
 
 
 
-        if(collision.transform.tag == "Pillar")
+        if(collision.transform.tag == "ActivePillar")
         {
-            if (collision.gameObject.GetComponentInParent<PillarScript>().active == true)
-            {
                 BossScript.bossHealth -= Damage;
-            }
         }
         if(weapion != Gun.MiniGun)
         {

@@ -12,7 +12,7 @@ public class EnemyAi : MonoBehaviour
     public GameObject player;
     public GameObject Encounter;
     private bool Cooldown = false;
-
+    public GameObject audionode;
     //drops
     public GameObject WeaponDrop;
     public GameObject HealthDrop;
@@ -47,6 +47,7 @@ public class EnemyAi : MonoBehaviour
                     Instantiate(HealthDrop, transform.position, Quaternion.identity, null);
                 }
             }
+            Instantiate(audionode);
             if(Encounter == null)
             {
                 Destroy(gameObject);

@@ -438,3 +438,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponGrab: 0
+  weaponlight: {fileID: 82967255243792459}
+  targetflash: 0

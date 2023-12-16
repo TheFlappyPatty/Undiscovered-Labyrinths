@@ -7,18 +7,27 @@ public class PillarScript : MonoBehaviour
     public bool active;
     public GameObject boss;
     public Material material;
+    public GameObject[] pillarchildren;
 
-    public void Start()
-    {
-
-    }
     public void Update()
     {
         if (active)
         {
-            material.color = Color.red;
-        } else {
+            material.color = Color.cyan;
+            gameObject.tag = "ActivePillar";
+            foreach (GameObject n in pillarchildren)
+            {
+                n.tag = "ActivePillar";
+            }
+        }
+        else
+        {
             material.color = Color.white;
+            gameObject.tag = "Pillar";
+            foreach (GameObject n in pillarchildren)
+            {
+                n.tag = "Pillar";
+            }
         }
     }
 }

@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     public int Ammo;
     public float Health;
     public Image HealthBar;
+    public Slider AmmoBar;
     private bool shooting = true;
     public static Vector3 Checkpoint;
     public Rounds WeaponCurrent;
@@ -47,10 +48,7 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
-        if (Checkpoint != new Vector3(0,0,0))
-        {
-            gameObject.transform.position = Checkpoint;
-        }
+
         if (Input.GetJoystickNames().Length == 0)
         {
             ControllerConnected = false;
@@ -62,9 +60,17 @@ public class Player : MonoBehaviour
     }
     public void Awake()
     {
-
+      StartCoroutine(CheckpointCheck());
     }
-    public void Update()
+    public IEnumerator CheckpointCheck()
+    {
+        yield return new WaitForSeconds(0.001f);
+        if (Checkpoint != new Vector3(0,0,0))
+        {
+            gameObject.transform.position = Checkpoint;
+        }
+    }        
+public void Update()
     {
         
         HealthBar.fillAmount = Health/100;
@@ -91,9 +97,21 @@ public class Player : MonoBehaviour
             transform.LookAt(CrossHair.transform);
             if(Input.GetAxis("Fire1C") == 1 && shooting == true)
             {
-                StartCoroutine(Shooting(Currentammo, CurrentFirerate, CurrentDamage, CurrentVelocity, CurrentlifeTime));
+                if(gun != Gun.Shotgun)
+                {
+                    StartCoroutine(Shooting(Currentammo, CurrentFirerate, CurrentDamage, CurrentVelocity, CurrentlifeTime));
+                }
+                else
+                {
+                    var shots = 5;
+                    while(shots-- > 0)
+                    {
+                        StartCoroutine(Shooting(Currentammo, CurrentFirerate, CurrentDamage, CurrentVelocity, CurrentlifeTime));
+                    }
+                }
                 shooting = false;
             }
+            AmmoBar.value = Ammo;
         }
 
         if (Health <=0)
@@ -116,11 +134,13 @@ public class Player : MonoBehaviour
         }
     }
 
-
     //When the player shoots the gun
     public IEnumerator Shooting(Rounds Ammotype,float fireRate,int Damage,int velocity,float lifetime)
     {
      if (Rounds.lazar == Ammotype) {
+            if(shooting == true)
+            {
+                shooting = false;
             RaycastHit target;
             Ray ray = new Ray(transform.position, transform.forward.normalized);
             if (Physics.Raycast(ray, out target, 50))
@@ -129,22 +149,26 @@ public class Player : MonoBehaviour
                 GetComponent<LineRenderer>().SetPosition(1,target.point);
                 if (target.collider.tag == "Enemy")
                 {
-               target.transform.gameObject.GetComponent<EnemyAi>().Health -= Damage;
+                    target.transform.gameObject.GetComponent<EnemyAi>().Health -= Damage;
                 }
-                //if (target.collider.tag == "Pillar" && target.collider.gameObject.GetComponent<PillarScript>().active == true)
-                //{
-                //    BossScript.bossHealth -= Damage;
-                //}
+                    else if (target.collider.tag == "ActivePillar")
+                    {
+                        BossScript.bossHealth -= Damage;
+                    }
+                }
+                Ammo -= 1;
+                yield return new WaitForSeconds(0.05f);
+                shooting = true;
             }
-            Ammo -= 1;
-            yield return new WaitForSeconds(0.05f);
-            shooting = true;
+
         } else {
             shooting = false;
-            var bullet = Instantiate(StandardAmmo, transform.position,transform.rotation, null);
+
+                var bullet = Instantiate(StandardAmmo, transform.position, transform.rotation, null);
             bullet.gameObject.GetComponent<Bullets>().Type = Ammotype;
             bullet.gameObject.GetComponent<Bullets>().bulletspeed = velocity;
             if (gun == Gun.MiniGun) bullet.transform.eulerAngles = new Vector3(bullet.transform.eulerAngles.x, bullet.transform.eulerAngles.y + Random.Range(-10, 10), bullet.transform.eulerAngles.z);
+            if (gun == Gun.Shotgun) bullet.transform.eulerAngles = new Vector3(bullet.transform.eulerAngles.x, bullet.transform.eulerAngles.y + Random.Range(-15, 15), bullet.transform.eulerAngles.z);
             bullet.gameObject.GetComponent<Bullets>().lifetime = lifetime;
             bullet.gameObject.GetComponent<Bullets>().Damage = Damage;
             bullet.gameObject.GetComponent<Bullets>().weapion = gun;
@@ -161,7 +185,6 @@ public class Player : MonoBehaviour
             RestoreDefault();
         }
     }
-
     //when the player dies
     public void die()
     {
