@@ -92,18 +92,18 @@ public class Weaponscript : MonoBehaviour
         }
         if(WeaponGrab == Gun.MiniGun)
         {
-            player.GetComponent<Player>().Pickedupweapon(Rounds.standard, 2400, 10, 30, 10,Gun.MiniGun);
+            player.GetComponent<Player>().Pickedupweapon(Rounds.standard, 2400, 7, 30, 10,Gun.MiniGun);
             player.GetComponent<Player>().Ammo = 400;
         }
         if (WeaponGrab == Gun.Grenade_Launcher)
         {
-            player.GetComponent<Player>().Pickedupweapon(Rounds.Explosive, 60, 50, 12, 15,Gun.Grenade_Launcher);
+            player.GetComponent<Player>().Pickedupweapon(Rounds.Explosive, 60, 200, 12, 15,Gun.Grenade_Launcher);
             player.GetComponent<Player>().Ammo = 8;
         }
         if(WeaponGrab == Gun.Shotgun)
         {
-            player.GetComponent<Player>().Pickedupweapon(Rounds.standard, 60, 20, 25, 2, Gun.Shotgun);
-            player.GetComponent<Player>().Ammo = 100;
+            player.GetComponent<Player>().Pickedupweapon(Rounds.standard, 120, 20, 25, 2, Gun.Shotgun);
+            player.GetComponent<Player>().Ammo = 150;
         }
     }
 

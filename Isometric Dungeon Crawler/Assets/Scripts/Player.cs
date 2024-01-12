@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public Slider AmmoBar;
     private bool shooting = true;
     public static Vector3 Checkpoint;
+    public static bool Movetoggle = false;
     public Rounds WeaponCurrent;
 
     [Space]
@@ -48,6 +49,7 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
+        StartCoroutine(CheckpointCheck());
 
         if (Input.GetJoystickNames().Length == 0)
         {
@@ -60,24 +62,38 @@ public class Player : MonoBehaviour
     }
     public void Awake()
     {
-      StartCoroutine(CheckpointCheck());
+
     }
     public IEnumerator CheckpointCheck()
     {
-        yield return new WaitForSeconds(0.001f);
-        if (Checkpoint != new Vector3(0,0,0))
+
+        if (Checkpoint == new Vector3(0,0,0))
         {
-            gameObject.transform.position = Checkpoint;
+            //gameObject.transform.position = Checkpoint;
         }
-    }        
-public void Update()
+        else
+        {
+
+            Movetoggle = true;
+            yield return new WaitForSeconds(0.01f);
+            gameObject.transform.position = Checkpoint;
+            yield return new WaitForSeconds(0.01f);
+            Movetoggle = false;
+        }
+    }
+    public void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            Debug.Log(Checkpoint);
+            StartCoroutine(CheckpointCheck());
+        }
         HealthBar.fillAmount = Health/100;
         Health = Mathf.Clamp(Health, 0, 100);
-        if(ControllerConnected == false) {
+        if (ControllerConnected == false)
+        {
             var MoveDir = new Vector3(Input.GetAxis("Horizontal") * MovementSpeed, -1, Input.GetAxis("Vertical") * MovementSpeed);
-            PlayerController.Move(MoveDir * Time.deltaTime);
+            if(Movetoggle == false)PlayerController.Move(MoveDir * Time.deltaTime);
 
             gameObject.transform.eulerAngles = new Vector3(0, dummypoint.transform.eulerAngles.y, 0);
             dummypoint.transform.LookAt(mousepoint.transform.position);
@@ -91,7 +107,7 @@ public void Update()
         else
         {
             var MoveDir = new Vector3(Input.GetAxis("ControllerH") * MovementSpeed, -1, Input.GetAxis("ControllerV") * MovementSpeed);
-            PlayerController.Move(MoveDir * Time.deltaTime);
+            if(Movetoggle == false)PlayerController.Move(MoveDir * Time.deltaTime);
 
             CrossHair.transform.localPosition = transform.localPosition + new Vector3(-Input.GetAxis("ControllerVRIght") * 2,0, -Input.GetAxis("ControllerHRight") * 2);
             transform.LookAt(CrossHair.transform);
@@ -224,8 +240,8 @@ public void Update()
             gameObject.AddComponent<LineRenderer>();
             gameObject.GetComponent<LineRenderer>().startColor = Color.white;
             gameObject.GetComponent<LineRenderer>().endColor = Color.red;
-            gameObject.GetComponent<LineRenderer>().startWidth = 0.1f;
-            gameObject.GetComponent<LineRenderer>().endWidth = 0.1f;
+            gameObject.GetComponent<LineRenderer>().startWidth = 0.2f;
+            gameObject.GetComponent<LineRenderer>().endWidth = 0.2f;
             gameObject.GetComponent<LineRenderer>().positionCount = 2;
             gameObject.GetComponent<LineRenderer>().useWorldSpace = true;
             gameObject.GetComponent<LineRenderer>().material = LaserTexture;

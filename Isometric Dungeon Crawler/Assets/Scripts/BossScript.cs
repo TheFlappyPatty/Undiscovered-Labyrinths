@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class BossScript : MonoBehaviour
 {
+    [Header("Boss Health")]
+    public GameObject Healthbar;
+    public Slider HealthBarBoss;
+
     [Header("Boss Attacks")]
     public GameObject EnemyBullet;
     public GameObject enemymissle;
@@ -35,11 +40,14 @@ public class BossScript : MonoBehaviour
     void Start()
     {
         bossHealth = 10000;
+        HealthBarBoss.maxValue = bossHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
+        HealthBarBoss.value = bossHealth;
+
         if(bossHealth <= 0)
         {
             SceneManager.LoadScene(1);
@@ -159,5 +167,6 @@ public class BossScript : MonoBehaviour
         playerc = player;
         stage = 1;
         fight = true;
+        Healthbar.SetActive(true);
     }
 }
