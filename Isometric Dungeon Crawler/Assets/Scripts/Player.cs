@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor.SearchService;
 
 public class Player : MonoBehaviour
 {
@@ -58,10 +59,6 @@ public class Player : MonoBehaviour
         {
             ControllerConnected = true;
         }
-
-    }
-    public void Awake()
-    {
 
     }
     public IEnumerator CheckpointCheck()
@@ -205,7 +202,7 @@ public class Player : MonoBehaviour
     public void die()
     {
         RestoreDefault();
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     //resets the gun to defaults
