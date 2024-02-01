@@ -55,9 +55,9 @@ public class EncounterToggle : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        gameObject.GetComponent<BoxCollider>().enabled = false;
         if(other.gameObject.tag == "Player")
         {
+            gameObject.GetComponent<BoxCollider>().enabled = false;
             EntranceWall.SetActive(true);
             StartCoroutine(Wave());
             player = other.gameObject;
