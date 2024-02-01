@@ -8559,7 +8559,8 @@ MonoBehaviour:
   - {fileID: 1156421172}
   - {fileID: 1967840180}
   - {fileID: 1017813480}
-  enemy: {fileID: 3170009261954483340, guid: a50875facbb4922479e940a6def686cf, type: 3}
+  enemy:
+  - {fileID: 3170009261954483340, guid: a50875facbb4922479e940a6def686cf, type: 3}
   Active: 0
   EncounterCam: {fileID: 789485695}
 --- !u!65 &1056422684
@@ -17423,6 +17424,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3634665739330909568, guid: 49b577447e397f445bba80d9c4361011, type: 3}
+      propertyPath: enemy.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3634665739330909568, guid: 49b577447e397f445bba80d9c4361011, type: 3}
+      propertyPath: enemy.Array.data[0]
+      value: 
+      objectReference: {fileID: 4648020056079975781, guid: daf38a6d7879a484a97b0be213df75c6, type: 3}
     - target: {fileID: 3634665739330909599, guid: 49b577447e397f445bba80d9c4361011, type: 3}
       propertyPath: m_Mesh
       value: 

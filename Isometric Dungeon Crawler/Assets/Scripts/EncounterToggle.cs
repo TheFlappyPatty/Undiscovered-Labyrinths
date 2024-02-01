@@ -10,7 +10,7 @@ public class EncounterToggle : MonoBehaviour
     public int CurrentWave;
     public int EnemiesAlive;
     public GameObject[] SpawnPoints;
-    public GameObject enemy;
+    public GameObject[] enemy;
     public bool Active;
     public Transform EncounterCam;
     private GameObject player;
@@ -25,7 +25,7 @@ public class EncounterToggle : MonoBehaviour
         {
             while (Wave_count[CurrentWave] >= EnemiesAlive)
             {
-                Instantiate(enemy, SpawnPoints[Random.Range(0, SpawnPoints.Length)].gameObject.transform.position, Quaternion.identity, null).GetComponent<EnemyAi>().Encounter = gameObject;
+                Instantiate(enemy[Random.Range(0,enemy.Length)], SpawnPoints[Random.Range(0, SpawnPoints.Length)].gameObject.transform.position, Quaternion.identity, null).GetComponent<EnemyAi>().Encounter = gameObject;
                 EnemiesAlive++;
                 yield return new WaitForSeconds(0.3f);
             }
