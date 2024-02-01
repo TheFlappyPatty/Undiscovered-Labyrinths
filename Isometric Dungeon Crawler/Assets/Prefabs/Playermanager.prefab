@@ -612,14 +612,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e3521147602d147ba6c32bedac7304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0.2
+  MovementSpeed: 7
   playerCam: {fileID: 4497085411177469671}
-  speedCap: 0.2
+  speedCap: 2
   PlayerController: {fileID: 4497085409729974848}
   Playerrig: {fileID: 4497085409729974879}
   InEncounter: 0
   Ammo: 0
-  Health: 0
+  Health: 100
   HealthBar: {fileID: 4502971123657955132}
   AmmoBar: {fileID: 5840042457865772214}
   WeaponCurrent: 0
