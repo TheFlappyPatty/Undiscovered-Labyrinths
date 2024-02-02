@@ -31,6 +31,10 @@ public class UIManager : MonoBehaviour
         CloseMenus();
         LevelSelect.enabled = true;
     }
+    public void quitGame()
+    {
+        Application.Quit();
+    }
     public void LoadLevel(String LevelName)
     {
         SceneManager.LoadScene(LevelName);
