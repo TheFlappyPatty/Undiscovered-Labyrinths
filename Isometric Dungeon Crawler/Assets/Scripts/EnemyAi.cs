@@ -8,6 +8,7 @@ public class EnemyAi : MonoBehaviour
     public int Speed;
     public int Health;
     public int Damage;
+    public bool FireUnit = false;
     public NavMeshAgent Controlpoint;
     public GameObject player;
     public GameObject Encounter;
@@ -64,8 +65,24 @@ public class EnemyAi : MonoBehaviour
         if (Cooldown == false)
         {
             Cooldown = true;
-            player.GetComponent<Player>().Health -= Damage;
-            yield return new WaitForSeconds(0.5f);
+            if(FireUnit == true)
+            {
+                player.GetComponent<Player>().Health -= Damage;
+                if(player.GetComponent<FirePlayerEffect>() == null)
+                {
+                    player.AddComponent<FirePlayerEffect>().Timer = 10;
+                    Debug.Log("Burning");
+                }
+                else
+                {
+                    player.GetComponent<FirePlayerEffect>().Timer += 5;
+                }
+            }
+            else
+            {
+                player.GetComponent<Player>().Health -= Damage;
+            }
+            yield return new WaitForSeconds(2f);
             Cooldown = false;
         }
     }

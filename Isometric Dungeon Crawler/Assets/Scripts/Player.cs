@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public float Health;
     public Image HealthBar;
     public Slider AmmoBar;
+    public GameObject FireEffect;
     private bool shooting = true;
     public static Vector3 Checkpoint;
     public static bool Movetoggle = false;
@@ -156,6 +157,7 @@ public class Player : MonoBehaviour
         {
             var Campos = new Vector3(transform.localPosition.x,transform.localPosition.y + 16f,transform.localPosition.z - 13f);
             playerCam.transform.localPosition = Campos;
+            playerCam.transform.eulerAngles = new Vector3(48f, 0f, 0f);
         }
 
         if (Playerrig.velocity.magnitude > speedCap)
