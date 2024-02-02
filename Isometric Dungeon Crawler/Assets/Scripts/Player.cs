@@ -46,6 +46,12 @@ public class Player : MonoBehaviour
     public GameObject mousepoint;
     public GameObject dummypoint;
 
+    [Space]
+    [Header("Pause Menu")]
+    public Canvas PauseMenu;
+    public Canvas PlayerUi;
+    private bool GameIsPaused = false;
+
 
 
     public void Start()
@@ -125,6 +131,17 @@ public class Player : MonoBehaviour
                 shooting = false;
             }
             AmmoBar.value = Ammo;
+            if(Input.GetButtonDown("Pause"))
+            {
+                if(GameIsPaused == true)
+                {
+                    unPause();
+                }
+                else
+                {
+                    Pause();
+                }
+            }
         }
 
         if (Health <=0)
@@ -145,6 +162,21 @@ public class Player : MonoBehaviour
         {
             Playerrig.velocity = Playerrig.velocity.normalized * speedCap;
         }
+    }
+
+    public void Pause()
+    {
+        GameIsPaused = true;
+        Time.timeScale = 0;
+        PauseMenu.enabled = true;
+        PlayerUi.enabled = false;
+    }
+    public void unPause()
+    {
+        GameIsPaused = false;
+        Time.timeScale = 1;
+        PauseMenu.enabled = false;
+        PlayerUi.enabled = true;
     }
 
     //When the player shoots the gun
