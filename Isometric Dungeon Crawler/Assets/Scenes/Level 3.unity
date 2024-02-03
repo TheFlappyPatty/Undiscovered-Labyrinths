@@ -8,8 +8,8 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: 5ebd89326afc51540936d88aac7f7ed9
+  m_OcclusionCullingData: {fileID: 36300000, guid: f4d50270fe2c210438afbe753c985557, type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -951,7 +951,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 119
   m_IsActive: 1
 --- !u!154 &106483943
 TerrainCollider:
@@ -7717,7 +7717,7 @@ MonoBehaviour:
   - {fileID: 1825112485}
   - {fileID: 1959767725}
   enemy:
-  - {fileID: 4648020056079975781, guid: daf38a6d7879a484a97b0be213df75c6, type: 3}
+  - {fileID: 6475944022582634535, guid: 4aa61d2b8ff4ba74ea935d1e08c3c3fd, type: 3}
   - {fileID: 3170009261954483340, guid: a50875facbb4922479e940a6def686cf, type: 3}
   Active: 0
   EncounterCam: {fileID: 1079297064}
@@ -9399,7 +9399,7 @@ MonoBehaviour:
   - {fileID: 2143810211}
   enemy:
   - {fileID: 3170009261954483340, guid: a50875facbb4922479e940a6def686cf, type: 3}
-  - {fileID: 4648020056079975781, guid: daf38a6d7879a484a97b0be213df75c6, type: 3}
+  - {fileID: 6475944022582634535, guid: 4aa61d2b8ff4ba74ea935d1e08c3c3fd, type: 3}
   Active: 0
   EncounterCam: {fileID: 656294035}
 --- !u!65 &1347132187
