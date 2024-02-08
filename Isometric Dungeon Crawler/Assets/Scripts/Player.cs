@@ -87,17 +87,13 @@ public class Player : MonoBehaviour
     }
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            Debug.Log(Checkpoint);
-            StartCoroutine(CheckpointCheck());
-        }
-        HealthBar.fillAmount = Health/100;
+        AmmoBar.value = Ammo;
+        HealthBar.fillAmount = Health / 100;
         Health = Mathf.Clamp(Health, 0, 100);
         if (ControllerConnected == false)
         {
             var MoveDir = new Vector3(Input.GetAxis("Horizontal") * MovementSpeed, -1, Input.GetAxis("Vertical") * MovementSpeed);
-            if(Movetoggle == false)PlayerController.Move(MoveDir * Time.deltaTime);
+            if (Movetoggle == false) PlayerController.Move(MoveDir * Time.deltaTime);
 
             gameObject.transform.eulerAngles = new Vector3(0, dummypoint.transform.eulerAngles.y, 0);
             dummypoint.transform.LookAt(mousepoint.transform.position);
@@ -111,30 +107,30 @@ public class Player : MonoBehaviour
         else
         {
             var MoveDir = new Vector3(Input.GetAxis("ControllerH") * MovementSpeed, -1, Input.GetAxis("ControllerV") * MovementSpeed);
-            if(Movetoggle == false)PlayerController.Move(MoveDir * Time.deltaTime);
+            if (Movetoggle == false) PlayerController.Move(MoveDir * Time.deltaTime);
 
-            CrossHair.transform.localPosition = transform.localPosition + new Vector3(-Input.GetAxis("ControllerVRIght") * 2,0, -Input.GetAxis("ControllerHRight") * 2);
+            CrossHair.transform.localPosition = transform.localPosition + new Vector3(-Input.GetAxis("ControllerVRIght") * 2, 0, -Input.GetAxis("ControllerHRight") * 2);
             transform.LookAt(CrossHair.transform);
-            if(Input.GetAxis("Fire1C") == 1 && shooting == true)
+            if (Input.GetAxis("Fire1C") == 1 && shooting == true)
             {
-                if(gun != Gun.Shotgun)
+                if (gun != Gun.Shotgun)
                 {
                     StartCoroutine(Shooting(Currentammo, CurrentFirerate, CurrentDamage, CurrentVelocity, CurrentlifeTime));
                 }
                 else
                 {
                     var shots = 5;
-                    while(shots-- > 0)
+                    while (shots-- > 0)
                     {
                         StartCoroutine(Shooting(Currentammo, CurrentFirerate, CurrentDamage, CurrentVelocity, CurrentlifeTime));
                     }
                 }
                 shooting = false;
             }
-            AmmoBar.value = Ammo;
-            if(Input.GetButtonDown("Pause"))
+
+            if (Input.GetButtonDown("Pause"))
             {
-                if(GameIsPaused == true)
+                if (GameIsPaused == true)
                 {
                     unPause();
                 }
@@ -145,27 +141,21 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Health <=0)
+        if (Health <= 0)
         {
             die();
         }
-        if (InEncounter)
+        if (InEncounter != true)
         {
-
-        }
-        else
-        {
-            var Campos = new Vector3(transform.localPosition.x,transform.localPosition.y + 16f,transform.localPosition.z - 13f);
+            var Campos = new Vector3(transform.localPosition.x, transform.localPosition.y + 16f, transform.localPosition.z - 13f);
             playerCam.transform.localPosition = Campos;
             playerCam.transform.eulerAngles = new Vector3(48f, 0f, 0f);
         }
-
         if (Playerrig.velocity.magnitude > speedCap)
         {
             Playerrig.velocity = Playerrig.velocity.normalized * speedCap;
         }
     }
-
     public void Pause()
     {
         GameIsPaused = true;
@@ -188,6 +178,7 @@ public class Player : MonoBehaviour
             if(shooting == true)
             {
                 shooting = false;
+                GetComponent<LineRenderer>().enabled = true;
             RaycastHit target;
             Ray ray = new Ray(transform.position, transform.forward.normalized);
             if (Physics.Raycast(ray, out target, 50))
@@ -205,6 +196,7 @@ public class Player : MonoBehaviour
                 }
                 Ammo -= 1;
                 yield return new WaitForSeconds(0.05f);
+                GetComponent<LineRenderer>().enabled = false;
                 shooting = true;
             }
 
