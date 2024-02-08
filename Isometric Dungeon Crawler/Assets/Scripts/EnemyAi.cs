@@ -126,7 +126,7 @@ public class EnemyAi : MonoBehaviour
                 var bullet = Instantiate(Bullet, transform.position, Quaternion.identity, null);
                 bullet.GetComponent<EnemyBulletScript>().Player = player;
                 bullet.GetComponent<EnemyBulletScript>().damage = Damage;
-                bullet.GetComponent<EnemyBulletScript>().speed = 10;
+                bullet.GetComponent<EnemyBulletScript>().speed = 20;
             }
             yield return new WaitForSeconds(2f);
             Cooldown = false;
