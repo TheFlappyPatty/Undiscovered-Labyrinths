@@ -32,6 +32,7 @@ public class EnemyBulletScript : MonoBehaviour
                 {
                     Player.GetComponent<FirePlayerEffect>().Timer += 5;
                 }
+                Destroy(gameObject);
             }
             else
             {
