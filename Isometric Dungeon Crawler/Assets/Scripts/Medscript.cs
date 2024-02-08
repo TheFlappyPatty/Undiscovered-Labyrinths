@@ -11,6 +11,7 @@ public class Medscript : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             other.GetComponent<Player>().Health += HealthGain;
+            if(other.gameObject.GetComponent<FirePlayerEffect>() != null)other.gameObject.GetComponent<FirePlayerEffect>().Timer = 0;
             Destroy(gameObject);
         }
     }
