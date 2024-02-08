@@ -3,7 +3,12 @@ guid: 116a4d7e6975a8a4cbfcb6020db503dd
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Encounter: {instanceID: 0}
+  - Bullet: {fileID: 7496770677862472225, guid: 8de64294973a4a7468c82e7e5854a25e, type: 3}
+  - audionode: {instanceID: 0}
+  - WeaponDrop: {instanceID: 0}
+  - HealthDrop: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

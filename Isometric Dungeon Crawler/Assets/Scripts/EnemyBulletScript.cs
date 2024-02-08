@@ -6,6 +6,7 @@ public class EnemyBulletScript : MonoBehaviour
 {
     public int damage;
     public int speed;
+    public bool FireBullet;
     public GameObject Player;
     public void Start()
     {
@@ -20,8 +21,23 @@ public class EnemyBulletScript : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            if (FireBullet == true)
+            {
+                Player.GetComponent<Player>().Health -= damage;
+                if (Player.GetComponent<FirePlayerEffect>() == null)
+                {
+                    Player.AddComponent<FirePlayerEffect>().Timer = 10;
+                }
+                else
+                {
+                    Player.GetComponent<FirePlayerEffect>().Timer += 5;
+                }
+            }
+            else
+            {
             Player.GetComponent<Player>().Health -= damage;
             Destroy(gameObject);
+            }
 
         }
         Destroy(gameObject);

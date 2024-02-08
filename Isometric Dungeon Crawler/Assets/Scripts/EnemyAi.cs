@@ -5,15 +5,22 @@ using UnityEngine.AI;
 
 public class EnemyAi : MonoBehaviour
 {
+    //Enemy Stats
     public int Speed;
     public int Health;
     public int Damage;
     public bool FireUnit = false;
-    public NavMeshAgent Controlpoint;
-    public GameObject player;
+    public bool RangedUnit = false;
+    public int DetectionRange = 20;
+
+    //Enemy FunctionControlls
+    private NavMeshAgent Controlpoint;
+    private GameObject player;
     public GameObject Encounter;
+    public GameObject Bullet;
     private bool Cooldown = false;
     public GameObject audionode;
+
     //drops
     public GameObject WeaponDrop;
     public GameObject HealthDrop;
@@ -25,14 +32,29 @@ public class EnemyAi : MonoBehaviour
     }
     public void Update()
     {
-        if(Vector3.Distance(player.transform.position,transform.position) < 20 || Encounter != null)
+        //Detection System
+        if(Vector3.Distance(player.transform.position,transform.position) < DetectionRange || Encounter != null)
         {
         Controlpoint.destination = player.transform.position;
         }
-        if (Vector3.Distance(player.transform.position, transform.position) < 2)
+
+        //Attack And Attack type
+        if (RangedUnit == true)
+        {
+            if (Vector3.Distance(player.transform.position, transform.position) < 10)
+            {
+                StartCoroutine(Shoot());
+            }
+        }
+        else if (Vector3.Distance(player.transform.position, transform.position) < 2)
         {
             StartCoroutine(attack());
         }
+
+
+
+
+        //Loot Drop System and death
         if (Health <= 0)
         {
             var random = Random.Range(0,100);
@@ -71,7 +93,6 @@ public class EnemyAi : MonoBehaviour
                 if(player.GetComponent<FirePlayerEffect>() == null)
                 {
                     player.AddComponent<FirePlayerEffect>().Timer = 10;
-                    Debug.Log("Burning");
                 }
                 else
                 {
@@ -85,5 +106,28 @@ public class EnemyAi : MonoBehaviour
             yield return new WaitForSeconds(2f);
             Cooldown = false;
         }
+    }
+    public IEnumerator Shoot()
+    {
+
+        if (Cooldown == false)
+        {
+            Cooldown = true;
+            if (FireUnit == true)
+            {
+                var bullet = Instantiate(Bullet, transform.position, Quaternion.identity, null);
+                bullet.GetComponent<EnemyBulletScript>().FireBullet = true;
+                bullet.GetComponent<EnemyBulletScript>().Player = player;
+            }
+            else
+            {
+                var bullet = Instantiate(Bullet, transform.position, Quaternion.identity, null);
+                bullet.GetComponent<EnemyBulletScript>().Player = player;
+            }
+            yield return new WaitForSeconds(2f);
+            Cooldown = false;
+        }
+
+
     }
 }
