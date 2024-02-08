@@ -178,13 +178,14 @@ public class Player : MonoBehaviour
             if(shooting == true)
             {
                 shooting = false;
-                GetComponent<LineRenderer>().enabled = true;
+
             RaycastHit target;
             Ray ray = new Ray(transform.position, transform.forward.normalized);
             if (Physics.Raycast(ray, out target, 50))
             {
                 GetComponent<LineRenderer>().SetPosition(0,transform.position);
                 GetComponent<LineRenderer>().SetPosition(1,target.point);
+                GetComponent<LineRenderer>().enabled = true;
                 if (target.collider.tag == "Enemy")
                 {
                     target.transform.gameObject.GetComponent<EnemyAi>().Health -= Damage;
