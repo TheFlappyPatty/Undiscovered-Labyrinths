@@ -15,10 +15,6 @@ public class BossroomScript : MonoBehaviour
     {
         openpos = Door.transform.localPosition;
     }
-    public void Update()
-    {
-
-    }
     public void Open()
     {
         Door.transform.localPosition = openpos;

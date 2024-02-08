@@ -34,6 +34,7 @@ public class BossScript : MonoBehaviour
     [Header("Boss Systems")]
     public static float bossHealth;
     public GameObject[] Pillars;
+    public bool BossMoves = true;
 
 
     // Start is called before the first frame update
@@ -129,7 +130,11 @@ public class BossScript : MonoBehaviour
         //When the boss moves
         if (wait == true)
         {
-            move();
+            if(BossMoves == true)
+            {
+                 move(); 
+            }
+
             wait = false;
             yield return new WaitForSeconds(20);
             wait = true;
