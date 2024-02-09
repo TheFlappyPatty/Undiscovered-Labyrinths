@@ -9198,6 +9198,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Healthbar: {fileID: 1037676823}
   HealthBarBoss: {fileID: 1037676825}
+  Stage2Start: 5000
+  BossHealth: 10000
   EnemyBullet: {fileID: 7496770677862472225, guid: 8de64294973a4a7468c82e7e5854a25e, type: 3}
   enemymissle: {fileID: 5992670276255719564, guid: c3376a4c028926844aa4c98c0ebf6968, type: 3}
   Enemies:
@@ -9222,6 +9224,8 @@ MonoBehaviour:
   - {fileID: 1082292478}
   - {fileID: 1590227887}
   - {fileID: 1542547036}
+  BossMoves: 1
+  Funky: []
 --- !u!4 &1152148192 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4648020056079975771, guid: daf38a6d7879a484a97b0be213df75c6, type: 3}

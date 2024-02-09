@@ -38,6 +38,7 @@ public class BossScript : MonoBehaviour
     public static float bossHealth;
     public GameObject[] Pillars;
     public bool BossMoves = true;
+    public List<DestructionPillars> Funky;
 
     // Start is called before the first frame update
     void Start()
@@ -50,12 +51,27 @@ public class BossScript : MonoBehaviour
     {
         HealthBarBoss.value = bossHealth;
 
-        if(bossHealth <= 0)
+
+
+        if (bossHealth <= 0)
         {
             SceneManager.LoadScene("MainMenu");
         }
         if(fight == true)
         {
+            if (Funky.Count < 0)
+            {
+                foreach (DestructionPillars f in Funky)
+                {
+                    if (f.HealthToDestroy >= BossHealth)
+                    {
+                        Instantiate(f.DestroyedPillar, f.PillarToDestroy.transform.position, Quaternion.identity, gameObject.transform);
+                        Destroy(f.PillarToDestroy);
+                        Funky.Remove(f);
+                    }
+                }
+            }
+
             if (stage == 1)
             {
                 StartCoroutine(Stage1());
@@ -67,6 +83,17 @@ public class BossScript : MonoBehaviour
             }
         }
     }
+
+
+
+
+
+
+
+
+
+
+
     private bool shooting = true;
     private bool stalltime = true;
     public IEnumerator Stage1()
@@ -174,5 +201,12 @@ public class BossScript : MonoBehaviour
         stage = 1;
         fight = true;
         Healthbar.SetActive(true);
+    }
+    [System.Serializable]
+    public class DestructionPillars
+    {
+        public GameObject PillarToDestroy;
+        public GameObject DestroyedPillar;
+        public int HealthToDestroy;
     }
 }
