@@ -48,7 +48,7 @@ public class EnemyAi : MonoBehaviour
         }
         else if (Vector3.Distance(player.transform.position, transform.position) < 2)
         {
-            StartCoroutine(attack());
+            StartCoroutine(Attack());
         }
 
 
@@ -82,7 +82,7 @@ public class EnemyAi : MonoBehaviour
             }
         }
     }
-    public IEnumerator attack()
+    public IEnumerator Attack()
     {
         if (Cooldown == false)
         {
