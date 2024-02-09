@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,6 +10,8 @@ public class BossScript : MonoBehaviour
     [Header("Boss Health")]
     public GameObject Healthbar;
     public Slider HealthBarBoss;
+    public int Stage2Start = 5000;
+    public float BossHealth = 10000;
 
     [Header("Boss Attacks")]
     public GameObject EnemyBullet;
@@ -36,14 +39,12 @@ public class BossScript : MonoBehaviour
     public GameObject[] Pillars;
     public bool BossMoves = true;
 
-
     // Start is called before the first frame update
     void Start()
     {
-        bossHealth = 10000;
+        bossHealth = BossHealth;
         HealthBarBoss.maxValue = bossHealth;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -51,7 +52,7 @@ public class BossScript : MonoBehaviour
 
         if(bossHealth <= 0)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("MainMenu");
         }
         if(fight == true)
         {
@@ -71,14 +72,14 @@ public class BossScript : MonoBehaviour
     public IEnumerator Stage1()
     {
         //The bosses Shooting attack
-        if(shooting == true)
+        if (shooting == true)
         {
-            if(stalltime == true)
+            if (stalltime == true)
             {
                 stalltime = false;
-         var bullet = Instantiate(EnemyBullet,gameObject.transform.position,Quaternion.identity,null);
+                var bullet = Instantiate(EnemyBullet, gameObject.transform.position, Quaternion.identity, null);
                 bullet.GetComponent<EnemyBulletScript>().Player = playerc;
-            yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(2);
                 stalltime = true;
             }
         }
@@ -95,7 +96,7 @@ public class BossScript : MonoBehaviour
             }
         }
         //When to go to the next stage
-        if (bossHealth <= 5000)
+        if (bossHealth <= Stage2Start)
         {
             stage = 2;
         }

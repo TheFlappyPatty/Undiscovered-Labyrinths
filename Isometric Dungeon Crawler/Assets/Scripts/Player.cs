@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
     public Rigidbody Playerrig;
     private bool ControllerConnected;
     public bool InEncounter;
-
     [Space]
     //Player stats
     [Header("Player stats")]
