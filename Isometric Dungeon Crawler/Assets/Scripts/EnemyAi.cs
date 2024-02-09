@@ -12,6 +12,7 @@ public class EnemyAi : MonoBehaviour
     public bool FireUnit = false;
     public bool RangedUnit = false;
     public int DetectionRange = 20;
+    private static int EnemiesKilled;
 
     //Enemy FunctionControlls
     private NavMeshAgent Controlpoint;
@@ -57,8 +58,9 @@ public class EnemyAi : MonoBehaviour
         //Loot Drop System and death
         if (Health <= 0)
         {
+            EnemiesKilled++;
             var random = Random.Range(0,100);
-            if(random > 90)
+            if(random > 91 || EnemiesKilled == 15)
             {
                 var randombuff = Random.Range(0, 100);
                 if (randombuff > 60)
@@ -70,6 +72,11 @@ public class EnemyAi : MonoBehaviour
                     Instantiate(HealthDrop, transform.position, Quaternion.identity, null);
                 }
             }
+            if(EnemiesKilled >= 15)
+            {
+                EnemiesKilled = 0;
+            }
+
             Instantiate(audionode);
             if(Encounter == null)
             {

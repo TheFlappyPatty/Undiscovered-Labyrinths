@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Unity.VisualScripting;
 using UnityEngine;
 
 // this script does things
@@ -14,27 +12,27 @@ public class Weaponscript : MonoBehaviour
     public GameObject[] WeaponModels;
     public void Awake()
     {
-        var RandomInput = Random.Range(1, 5);
-        if (RandomInput == 1)
-        {
-            WeaponGrab = Gun.LazerBeam;
-            WeaponModels[0].gameObject.SetActive(true);
-        }
-        if(RandomInput == 2)
-        {
-            WeaponGrab = Gun.Grenade_Launcher;
-            WeaponModels[1].gameObject.SetActive(true);
-        }
-        if (RandomInput == 3)
-        {
-            WeaponGrab = Gun.MiniGun;
-            WeaponModels[2].gameObject.SetActive(true);
-        }
-        if(RandomInput == 4)
-        {
-            WeaponGrab = Gun.Shotgun;
-            WeaponModels[3].gameObject.SetActive(true);
-        }
+            var RandomInput = Random.Range(1, 5);
+            if (RandomInput == 1)
+            {
+                WeaponGrab = Gun.LazerBeam;
+                WeaponModels[0].gameObject.SetActive(true);
+            }
+            if (RandomInput == 2)
+            {
+                WeaponGrab = Gun.Grenade_Launcher;
+                WeaponModels[1].gameObject.SetActive(true);
+            }
+            if (RandomInput == 3)
+            {
+                WeaponGrab = Gun.MiniGun;
+                WeaponModels[2].gameObject.SetActive(true);
+            }
+            if (RandomInput == 4)
+            {
+                WeaponGrab = Gun.Shotgun;
+                WeaponModels[3].gameObject.SetActive(true);
+            }
         StartCoroutine(Timer());
     }
     public void Update()
