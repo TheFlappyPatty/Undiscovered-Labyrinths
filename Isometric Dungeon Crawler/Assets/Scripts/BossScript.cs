@@ -59,13 +59,13 @@ public class BossScript : MonoBehaviour
         }
         if(fight == true)
         {
-            if (Funky.Count < 0)
+            if (Funky.Count > 0)
             {
                 foreach (DestructionPillars f in Funky)
                 {
                     if (f.HealthToDestroy >= BossHealth)
                     {
-                        Instantiate(f.DestroyedPillar, f.PillarToDestroy.transform.position, Quaternion.identity, gameObject.transform);
+                        Instantiate(f.DestroyedPillar, f.PillarToDestroy.transform.position, Quaternion.identity,gameObject.transform.parent.transform);
                         Destroy(f.PillarToDestroy);
                         Funky.Remove(f);
                     }
