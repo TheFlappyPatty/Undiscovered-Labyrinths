@@ -1674,6 +1674,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Towers: []
   TowerPile: {fileID: 0}
+  Spawnenemyamount: 0
+  enemyamountleft: 0
+  Enemies: []
+  Spawners: []
 --- !u!1 &117562353
 GameObject:
   m_ObjectHideFlags: 0
@@ -6603,7 +6607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 7496770677862472225, guid: 8de64294973a4a7468c82e7e5854a25e, type: 3}
-  Health: 2000
+  Health: 500
   IsFireGem: 0
   Damage: 25
   Gem: {fileID: 1967727891}
@@ -7165,7 +7169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 7496770677862472225, guid: 8de64294973a4a7468c82e7e5854a25e, type: 3}
-  Health: 2000
+  Health: 500
   IsFireGem: 0
   Damage: 25
   Gem: {fileID: 1476478077}
@@ -7960,7 +7964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 7496770677862472225, guid: 8de64294973a4a7468c82e7e5854a25e, type: 3}
-  Health: 2000
+  Health: 500
   IsFireGem: 0
   Damage: 25
   Gem: {fileID: 1722363299}
@@ -9452,15 +9456,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5266990850071852886, guid: 9bdeaa4a4afc566409faa3f5d8191b12, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 563.6
+      value: 173.63
       objectReference: {fileID: 0}
     - target: {fileID: 5266990850071852886, guid: 9bdeaa4a4afc566409faa3f5d8191b12, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 84
+      value: 51.64
       objectReference: {fileID: 0}
     - target: {fileID: 5266990850071852886, guid: 9bdeaa4a4afc566409faa3f5d8191b12, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 385.9
+      value: 138.08
       objectReference: {fileID: 0}
     - target: {fileID: 5266990850483264668, guid: 9bdeaa4a4afc566409faa3f5d8191b12, type: 3}
       propertyPath: m_Layer
@@ -10766,7 +10770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 7496770677862472225, guid: 8de64294973a4a7468c82e7e5854a25e, type: 3}
-  Health: 2000
+  Health: 500
   IsFireGem: 0
   Damage: 25
   Gem: {fileID: 1516961200}
@@ -17050,6 +17054,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Towers: []
   TowerPile: {fileID: 0}
+  Spawnenemyamount: 0
+  enemyamountleft: 0
+  Enemies: []
+  Spawners: []
 --- !u!1001 &1702512662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18804,7 +18812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 7496770677862472225, guid: 8de64294973a4a7468c82e7e5854a25e, type: 3}
-  Health: 2000
+  Health: 500
   IsFireGem: 0
   Damage: 25
   Gem: {fileID: 305927674}
@@ -18916,7 +18924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 7496770677862472225, guid: 8de64294973a4a7468c82e7e5854a25e, type: 3}
-  Health: 2000
+  Health: 500
   IsFireGem: 0
   Damage: 25
   Gem: {fileID: 1493832935}
@@ -21548,7 +21556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 7496770677862472225, guid: 8de64294973a4a7468c82e7e5854a25e, type: 3}
-  Health: 2000
+  Health: 500
   IsFireGem: 0
   Damage: 25
   Gem: {fileID: 1844403686}
