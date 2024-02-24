@@ -1592,6 +1592,7 @@ GameObject:
   - component: {fileID: 106483945}
   - component: {fileID: 106483944}
   - component: {fileID: 106483943}
+  - component: {fileID: 106483946}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -1659,6 +1660,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &106483946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106483942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1e552382e6230e4ea4f86ed0ab79d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Towers: []
+  TowerPile: {fileID: 0}
 --- !u!1 &117562353
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,8 +1840,7 @@ GameObject:
   - component: {fileID: 122159327}
   - component: {fileID: 122159330}
   - component: {fileID: 122159329}
-  - component: {fileID: 122159328}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1848,19 +1862,6 @@ Transform:
   m_Father: {fileID: 1722363300}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 45, y: 45, z: 45}
---- !u!65 &122159328
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122159326}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &122159329
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2020,8 +2021,7 @@ GameObject:
   - component: {fileID: 129229739}
   - component: {fileID: 129229742}
   - component: {fileID: 129229741}
-  - component: {fileID: 129229740}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2043,19 +2043,6 @@ Transform:
   m_Father: {fileID: 1722363300}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &129229740
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 129229738}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &129229741
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3908,8 +3895,7 @@ GameObject:
   - component: {fileID: 292646735}
   - component: {fileID: 292646738}
   - component: {fileID: 292646737}
-  - component: {fileID: 292646736}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3931,19 +3917,6 @@ Transform:
   m_Father: {fileID: 1493832936}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &292646736
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 292646734}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &292646737
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4230,8 +4203,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 305927675}
-  m_Layer: 0
-  m_Name: Gem
+  m_Layer: 9
+  m_Name: Gem1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4798,8 +4771,7 @@ GameObject:
   - component: {fileID: 359799106}
   - component: {fileID: 359799109}
   - component: {fileID: 359799108}
-  - component: {fileID: 359799107}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4821,19 +4793,6 @@ Transform:
   m_Father: {fileID: 305927675}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &359799107
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 359799105}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &359799108
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5832,7 +5791,7 @@ GameObject:
   - component: {fileID: 411837678}
   - component: {fileID: 411837677}
   - component: {fileID: 411837676}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6318,9 +6277,9 @@ GameObject:
   - component: {fileID: 467836333}
   - component: {fileID: 467836332}
   - component: {fileID: 467836331}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6415,9 +6374,9 @@ GameObject:
   - component: {fileID: 472480199}
   - component: {fileID: 472480198}
   - component: {fileID: 472480197}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6512,9 +6471,9 @@ GameObject:
   - component: {fileID: 494094150}
   - component: {fileID: 494094149}
   - component: {fileID: 494094148}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6606,9 +6565,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 498717810}
-  m_Layer: 0
+  - component: {fileID: 498717811}
+  m_Layer: 9
   m_Name: Tower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6620,16 +6580,37 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498717809}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -65.1, y: 2.86, z: 65.2}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -65.100006, y: 2.8600006, z: 65.20001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 472480196}
   - {fileID: 1967727892}
-  m_Father: {fileID: 1272630134}
-  m_RootOrder: 6
+  m_Father: {fileID: 664783271}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &498717811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498717809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c3a7849c0f2154d97a8ba46e7466ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 7496770677862472225, guid: 8de64294973a4a7468c82e7e5854a25e, type: 3}
+  Health: 2000
+  IsFireGem: 0
+  Damage: 25
+  Gem: {fileID: 1967727891}
+  UnCharedColor: {r: 0, g: 0, b: 0, a: 0}
+  ChargedColor: {r: 1, g: 0, b: 0, a: 0}
+  rechargeTime: 2
+  ChargeUpTime: 0.05
 --- !u!1 &502161991
 GameObject:
   m_ObjectHideFlags: 0
@@ -6855,6 +6836,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527462716}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &555846831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 555846832}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &555846832
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555846831}
+  m_LocalRotation: {x: 0.56655246, y: -0.123417415, z: 0.029684942, w: 0.81419}
+  m_LocalPosition: {x: -26, y: 75.9, z: 76.79999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1272630134}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 68.418, y: -27.059, z: -14.405}
 --- !u!1 &556852047
 GameObject:
   m_ObjectHideFlags: 0
@@ -7115,9 +7127,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 574723371}
-  m_Layer: 0
+  - component: {fileID: 574723372}
+  m_Layer: 9
   m_Name: Tower (2)
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7130,15 +7143,36 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 574723370}
   m_LocalRotation: {x: -0, y: 0.44642976, z: -0, w: 0.8948187}
-  m_LocalPosition: {x: -18.2, y: 2.86, z: 104.1}
+  m_LocalPosition: {x: -18.200012, y: 2.8600006, z: 104.100006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 494094147}
   - {fileID: 1476478078}
-  m_Father: {fileID: 1272630134}
-  m_RootOrder: 8
+  m_Father: {fileID: 664783271}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 53.03, z: 0}
+--- !u!114 &574723372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574723370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c3a7849c0f2154d97a8ba46e7466ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 7496770677862472225, guid: 8de64294973a4a7468c82e7e5854a25e, type: 3}
+  Health: 2000
+  IsFireGem: 0
+  Damage: 25
+  Gem: {fileID: 1476478077}
+  UnCharedColor: {r: 0, g: 0, b: 0, a: 0}
+  ChargedColor: {r: 1, g: 0, b: 0, a: 0}
+  rechargeTime: 2
+  ChargeUpTime: 0.05
 --- !u!1 &594349940
 GameObject:
   m_ObjectHideFlags: 0
@@ -7888,9 +7922,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 648843464}
-  m_Layer: 0
+  - component: {fileID: 648843465}
+  m_Layer: 9
   m_Name: Tower (6)
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7903,15 +7938,36 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 648843463}
   m_LocalRotation: {x: -0, y: 0.44642976, z: -0, w: 0.8948187}
-  m_LocalPosition: {x: -57.1, y: 2.86, z: 102.5}
+  m_LocalPosition: {x: -57.099976, y: 2.8600006, z: 102.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1629823694}
   - {fileID: 1722363300}
-  m_Father: {fileID: 1272630134}
-  m_RootOrder: 12
+  m_Father: {fileID: 664783271}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 53.03, z: 0}
+--- !u!114 &648843465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648843463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c3a7849c0f2154d97a8ba46e7466ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 7496770677862472225, guid: 8de64294973a4a7468c82e7e5854a25e, type: 3}
+  Health: 2000
+  IsFireGem: 0
+  Damage: 25
+  Gem: {fileID: 1722363299}
+  UnCharedColor: {r: 0, g: 0, b: 0, a: 0}
+  ChargedColor: {r: 1, g: 0, b: 0, a: 0}
+  rechargeTime: 2
+  ChargeUpTime: 0.05
 --- !u!1 &656294034
 GameObject:
   m_ObjectHideFlags: 0
@@ -7988,6 +8044,44 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &664783270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 664783271}
+  m_Layer: 0
+  m_Name: TowerPile
+  m_TagString: Tower
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &664783271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664783270}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 498717810}
+  - {fileID: 1875958579}
+  - {fileID: 574723371}
+  - {fileID: 944746257}
+  - {fileID: 2143273333}
+  - {fileID: 1901731104}
+  - {fileID: 648843464}
+  m_Father: {fileID: 1272630134}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &683674255
 GameObject:
   m_ObjectHideFlags: 0
@@ -9358,15 +9452,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5266990850071852886, guid: 9bdeaa4a4afc566409faa3f5d8191b12, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 174.21
+      value: 563.6
       objectReference: {fileID: 0}
     - target: {fileID: 5266990850071852886, guid: 9bdeaa4a4afc566409faa3f5d8191b12, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 51.78
+      value: 84
       objectReference: {fileID: 0}
     - target: {fileID: 5266990850071852886, guid: 9bdeaa4a4afc566409faa3f5d8191b12, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 131.26
+      value: 385.9
       objectReference: {fileID: 0}
     - target: {fileID: 5266990850483264668, guid: 9bdeaa4a4afc566409faa3f5d8191b12, type: 3}
       propertyPath: m_Layer
@@ -10634,9 +10728,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 944746257}
-  m_Layer: 0
+  - component: {fileID: 944746258}
+  m_Layer: 9
   m_Name: Tower (3)
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10649,15 +10744,36 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944746256}
   m_LocalRotation: {x: -0, y: 0.45201287, z: -0, w: 0.8920114}
-  m_LocalPosition: {x: -44.9, y: 2.86, z: 142.7}
+  m_LocalPosition: {x: -44.900024, y: 2.8600006, z: 142.70001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1532965865}
   - {fileID: 1516961201}
-  m_Father: {fileID: 1272630134}
-  m_RootOrder: 9
+  m_Father: {fileID: 664783271}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 53.746, z: 0}
+--- !u!114 &944746258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944746256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c3a7849c0f2154d97a8ba46e7466ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 7496770677862472225, guid: 8de64294973a4a7468c82e7e5854a25e, type: 3}
+  Health: 2000
+  IsFireGem: 0
+  Damage: 25
+  Gem: {fileID: 1516961200}
+  UnCharedColor: {r: 0, g: 0, b: 0, a: 0}
+  ChargedColor: {r: 1, g: 0, b: 0, a: 0}
+  rechargeTime: 2
+  ChargeUpTime: 0.05
 --- !u!4 &952552792 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3170009261954483378, guid: a50875facbb4922479e940a6def686cf, type: 3}
@@ -11214,9 +11330,9 @@ GameObject:
   - component: {fileID: 1023027798}
   - component: {fileID: 1023027797}
   - component: {fileID: 1023027796}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11676,8 +11792,7 @@ GameObject:
   - component: {fileID: 1050319116}
   - component: {fileID: 1050319119}
   - component: {fileID: 1050319118}
-  - component: {fileID: 1050319117}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11699,19 +11814,6 @@ Transform:
   m_Father: {fileID: 1493832936}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 45, y: 45, z: 45}
---- !u!65 &1050319117
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1050319115}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1050319118
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12928,8 +13030,7 @@ GameObject:
   - component: {fileID: 1199742817}
   - component: {fileID: 1199742820}
   - component: {fileID: 1199742819}
-  - component: {fileID: 1199742818}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12951,19 +13052,6 @@ Transform:
   m_Father: {fileID: 305927675}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 45, y: 45, z: 45}
---- !u!65 &1199742818
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1199742816}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1199742819
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13397,13 +13485,9 @@ Transform:
   - {fileID: 1641601526}
   - {fileID: 68739208}
   - {fileID: 1693124697}
-  - {fileID: 498717810}
-  - {fileID: 1875958579}
-  - {fileID: 574723371}
-  - {fileID: 944746257}
-  - {fileID: 2143273333}
-  - {fileID: 1901731104}
-  - {fileID: 648843464}
+  - {fileID: 664783271}
+  - {fileID: 1549932359}
+  - {fileID: 555846832}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13419,9 +13503,9 @@ GameObject:
   - component: {fileID: 1291585445}
   - component: {fileID: 1291585444}
   - component: {fileID: 1291585443}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14675,8 +14759,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1476478078}
-  m_Layer: 0
-  m_Name: Gem
+  m_Layer: 9
+  m_Name: Gem2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14708,8 +14792,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1493832936}
-  m_Layer: 0
-  m_Name: Gem
+  m_Layer: 9
+  m_Name: Gem5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14870,8 +14954,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1516961201}
-  m_Layer: 0
-  m_Name: Gem
+  m_Layer: 9
+  m_Name: Gem3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14968,9 +15052,9 @@ GameObject:
   - component: {fileID: 1532965868}
   - component: {fileID: 1532965867}
   - component: {fileID: 1532965866}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15155,6 +15239,66 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547852964}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1549932358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1549932359}
+  - component: {fileID: 1549932361}
+  - component: {fileID: 1549932360}
+  m_Layer: 0
+  m_Name: BossTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1549932359
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549932358}
+  m_LocalRotation: {x: -0, y: -0.14735709, z: -0, w: 0.98908335}
+  m_LocalPosition: {x: -34.2, y: 2, z: 103.8}
+  m_LocalScale: {x: 102.73709, y: 3.3248, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1272630134}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: -16.948, z: 0}
+--- !u!114 &1549932360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549932358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8784ad80b78d9d44a9c3e5c629f3a234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Towermanager: {fileID: 1693124696}
+  ECamera: {fileID: 555846831}
+--- !u!65 &1549932361
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549932358}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1557408913
 GameObject:
   m_ObjectHideFlags: 0
@@ -15728,9 +15872,9 @@ GameObject:
   - component: {fileID: 1629823697}
   - component: {fileID: 1629823696}
   - component: {fileID: 1629823695}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15824,8 +15968,7 @@ GameObject:
   - component: {fileID: 1636850808}
   - component: {fileID: 1636850811}
   - component: {fileID: 1636850810}
-  - component: {fileID: 1636850809}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15847,19 +15990,6 @@ Transform:
   m_Father: {fileID: 1516961201}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 45, y: 45, z: 45}
---- !u!65 &1636850809
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1636850807}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1636850810
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16311,8 +16441,7 @@ GameObject:
   - component: {fileID: 1651481560}
   - component: {fileID: 1651481563}
   - component: {fileID: 1651481562}
-  - component: {fileID: 1651481561}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16334,19 +16463,6 @@ Transform:
   m_Father: {fileID: 1844403687}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1651481561
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1651481559}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1651481562
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16927,12 +17043,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1693124696}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1e552382e6230e4ea4f86ed0ab79d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Towers: []
+  TowerPile: {fileID: 0}
 --- !u!1001 &1702512662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17096,8 +17213,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1722363300}
-  m_Layer: 0
-  m_Name: Gem
+  m_Layer: 9
+  m_Name: Gem6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17988,7 +18105,7 @@ GameObject:
   - component: {fileID: 1785556892}
   - component: {fileID: 1785556891}
   - component: {fileID: 1785556890}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18279,8 +18396,7 @@ GameObject:
   - component: {fileID: 1808467814}
   - component: {fileID: 1808467817}
   - component: {fileID: 1808467816}
-  - component: {fileID: 1808467815}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18302,19 +18418,6 @@ Transform:
   m_Father: {fileID: 1844403687}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 45, y: 45, z: 45}
---- !u!65 &1808467815
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1808467813}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1808467816
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18528,8 +18631,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1844403687}
-  m_Layer: 0
-  m_Name: Gem
+  m_Layer: 9
+  m_Name: Gem4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18663,9 +18766,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1875958579}
-  m_Layer: 0
+  - component: {fileID: 1875958580}
+  m_Layer: 9
   m_Name: Tower (1)
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18677,16 +18781,37 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1875958578}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -79.1, y: 2.86, z: 136.8}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -79.100006, y: 2.8600006, z: 136.79999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1023027795}
   - {fileID: 305927675}
-  m_Father: {fileID: 1272630134}
-  m_RootOrder: 7
+  m_Father: {fileID: 664783271}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1875958580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875958578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c3a7849c0f2154d97a8ba46e7466ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 7496770677862472225, guid: 8de64294973a4a7468c82e7e5854a25e, type: 3}
+  Health: 2000
+  IsFireGem: 0
+  Damage: 25
+  Gem: {fileID: 305927674}
+  UnCharedColor: {r: 0, g: 0, b: 0, a: 0}
+  ChargedColor: {r: 1, g: 0, b: 0, a: 0}
+  rechargeTime: 2
+  ChargeUpTime: 0.05
 --- !u!1001 &1897560399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18753,9 +18878,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1901731104}
-  m_Layer: 0
+  - component: {fileID: 1901731105}
+  m_Layer: 9
   m_Name: Tower (5)
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18767,16 +18893,37 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1901731103}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.000008, y: 2.86, z: 86.60002}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13, y: 2.8600006, z: 86.60004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 467836330}
   - {fileID: 1493832936}
-  m_Father: {fileID: 1272630134}
-  m_RootOrder: 11
+  m_Father: {fileID: 664783271}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1901731105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901731103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c3a7849c0f2154d97a8ba46e7466ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 7496770677862472225, guid: 8de64294973a4a7468c82e7e5854a25e, type: 3}
+  Health: 2000
+  IsFireGem: 0
+  Damage: 25
+  Gem: {fileID: 1493832935}
+  UnCharedColor: {r: 0, g: 0, b: 0, a: 0}
+  ChargedColor: {r: 1, g: 0, b: 0, a: 0}
+  rechargeTime: 2
+  ChargeUpTime: 0.05
 --- !u!1 &1916423595
 GameObject:
   m_ObjectHideFlags: 0
@@ -19420,7 +19567,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1967727892}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Gem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19846,8 +19993,7 @@ GameObject:
   - component: {fileID: 1988570575}
   - component: {fileID: 1988570578}
   - component: {fileID: 1988570577}
-  - component: {fileID: 1988570576}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19869,19 +20015,6 @@ Transform:
   m_Father: {fileID: 1516961201}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1988570576
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988570574}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1988570577
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20010,8 +20143,7 @@ GameObject:
   - component: {fileID: 2003377291}
   - component: {fileID: 2003377294}
   - component: {fileID: 2003377293}
-  - component: {fileID: 2003377292}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20033,19 +20165,6 @@ Transform:
   m_Father: {fileID: 1476478078}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 45, y: 45, z: 45}
---- !u!65 &2003377292
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003377290}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2003377293
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20541,8 +20660,7 @@ GameObject:
   - component: {fileID: 2053372075}
   - component: {fileID: 2053372078}
   - component: {fileID: 2053372077}
-  - component: {fileID: 2053372076}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20564,19 +20682,6 @@ Transform:
   m_Father: {fileID: 1476478078}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2053372076
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2053372074}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2053372077
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21405,9 +21510,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2143273333}
-  m_Layer: 0
+  - component: {fileID: 2143273334}
+  m_Layer: 9
   m_Name: Tower (4)
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21420,15 +21526,36 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2143273332}
   m_LocalRotation: {x: -0, y: -0.60628945, z: -0, w: 0.7952441}
-  m_LocalPosition: {x: -5.6, y: 2.86, z: 143.8}
+  m_LocalPosition: {x: -5.5999756, y: 2.8600006, z: 143.79999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1291585442}
   - {fileID: 1844403687}
-  m_Father: {fileID: 1272630134}
-  m_RootOrder: 10
+  m_Father: {fileID: 664783271}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -74.643, z: 0}
+--- !u!114 &2143273334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143273332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c3a7849c0f2154d97a8ba46e7466ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 7496770677862472225, guid: 8de64294973a4a7468c82e7e5854a25e, type: 3}
+  Health: 2000
+  IsFireGem: 0
+  Damage: 25
+  Gem: {fileID: 1844403686}
+  UnCharedColor: {r: 0, g: 0, b: 0, a: 0}
+  ChargedColor: {r: 1, g: 0, b: 0, a: 0}
+  rechargeTime: 2
+  ChargeUpTime: 0.05
 --- !u!1 &2143810211
 GameObject:
   m_ObjectHideFlags: 0

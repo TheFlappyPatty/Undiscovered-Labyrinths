@@ -40,6 +40,8 @@ public class Player : MonoBehaviour
     private bool defaultisequiped;
     public GameObject StandardAmmo;
     public Material LaserTexture;
+
+
     //mouse tracking and controller
     public GameObject CrossHair;
     public GameObject mousepoint;
@@ -191,6 +193,9 @@ public class Player : MonoBehaviour
                     else if (target.collider.tag == "ActivePillar")
                     {
                         BossScript.bossHealth -= Damage;
+                    } else if (target.collider.tag == "Tower")
+                    {
+                        target.transform.GetComponent<TowerControler>().Health -= Damage;
                     }
                 }
                 Ammo -= 1;

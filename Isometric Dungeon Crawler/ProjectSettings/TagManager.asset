@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Pillar
   - ActivePillar
+  - Tower
   layers:
   - Default
   - TransparentFX

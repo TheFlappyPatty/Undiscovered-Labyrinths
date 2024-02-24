@@ -48,7 +48,11 @@ public class Bullets : MonoBehaviour
 
         }
 
-
+        if(collision.transform.tag == "Tower")
+        {
+            collision.transform.parent.GetComponent<TowerControler>().Health -= Damage;
+            Destroy(gameObject);
+        }
 
 
 
