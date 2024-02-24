@@ -6613,8 +6613,8 @@ MonoBehaviour:
   Gem: {fileID: 1967727891}
   UnCharedColor: {r: 0, g: 0, b: 0, a: 0}
   ChargedColor: {r: 1, g: 0, b: 0, a: 0}
-  rechargeTime: 2
-  ChargeUpTime: 0.05
+  rechargeTime: 0.5
+  ChargeUpTime: 0.02
 --- !u!1 &502161991
 GameObject:
   m_ObjectHideFlags: 0
@@ -7175,8 +7175,8 @@ MonoBehaviour:
   Gem: {fileID: 1476478077}
   UnCharedColor: {r: 0, g: 0, b: 0, a: 0}
   ChargedColor: {r: 1, g: 0, b: 0, a: 0}
-  rechargeTime: 2
-  ChargeUpTime: 0.05
+  rechargeTime: 0.5
+  ChargeUpTime: 0.02
 --- !u!1 &594349940
 GameObject:
   m_ObjectHideFlags: 0
@@ -7970,8 +7970,8 @@ MonoBehaviour:
   Gem: {fileID: 1722363299}
   UnCharedColor: {r: 0, g: 0, b: 0, a: 0}
   ChargedColor: {r: 1, g: 0, b: 0, a: 0}
-  rechargeTime: 2
-  ChargeUpTime: 0.05
+  rechargeTime: 0.5
+  ChargeUpTime: 0.02
 --- !u!1 &656294034
 GameObject:
   m_ObjectHideFlags: 0
@@ -10776,8 +10776,8 @@ MonoBehaviour:
   Gem: {fileID: 1516961200}
   UnCharedColor: {r: 0, g: 0, b: 0, a: 0}
   ChargedColor: {r: 1, g: 0, b: 0, a: 0}
-  rechargeTime: 2
-  ChargeUpTime: 0.05
+  rechargeTime: 0.5
+  ChargeUpTime: 0.02
 --- !u!4 &952552792 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3170009261954483378, guid: a50875facbb4922479e940a6def686cf, type: 3}
@@ -18818,8 +18818,8 @@ MonoBehaviour:
   Gem: {fileID: 305927674}
   UnCharedColor: {r: 0, g: 0, b: 0, a: 0}
   ChargedColor: {r: 1, g: 0, b: 0, a: 0}
-  rechargeTime: 2
-  ChargeUpTime: 0.05
+  rechargeTime: 0.5
+  ChargeUpTime: 0.02
 --- !u!1001 &1897560399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18930,8 +18930,8 @@ MonoBehaviour:
   Gem: {fileID: 1493832935}
   UnCharedColor: {r: 0, g: 0, b: 0, a: 0}
   ChargedColor: {r: 1, g: 0, b: 0, a: 0}
-  rechargeTime: 2
-  ChargeUpTime: 0.05
+  rechargeTime: 0.5
+  ChargeUpTime: 0.02
 --- !u!1 &1916423595
 GameObject:
   m_ObjectHideFlags: 0
@@ -21562,8 +21562,8 @@ MonoBehaviour:
   Gem: {fileID: 1844403686}
   UnCharedColor: {r: 0, g: 0, b: 0, a: 0}
   ChargedColor: {r: 1, g: 0, b: 0, a: 0}
-  rechargeTime: 2
-  ChargeUpTime: 0.05
+  rechargeTime: 0.5
+  ChargeUpTime: 0.02
 --- !u!1 &2143810211
 GameObject:
   m_ObjectHideFlags: 0
