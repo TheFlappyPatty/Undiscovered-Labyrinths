@@ -6,6 +6,11 @@ public class TowerManager : MonoBehaviour
 {
     public List<TowerControler> Towers;
     public GameObject TowerPile;
+
+    public int Spawnenemyamount;
+    public int enemyamountleft;
+    public GameObject[] Enemies;
+    public GameObject[] Spawners;
     public void Awake()
     {
         TowerPile = GameObject.Find("TowerPile");
@@ -24,6 +29,15 @@ public class TowerManager : MonoBehaviour
         {
             Debug.Log("Player Wins");
         }
+        //if (Spawnenemyamount >= enemyamountleft)
+        //{
+        //    while (Spawnenemyamount >= enemyamountleft)
+        //    {
+        //        var enemie = Instantiate(Enemies[Random.Range(0, Enemies.Length)], Spawners[Random.Range(0, Spawners.Length)].transform.position, Quaternion.identity, null);
+        //        enemie.GetComponent<EnemyAi>().Encounter = gameObject;
+        //        enemyamountleft++;
+        //    }
+        //}
     }
     public void ActivateTowers()
     {
