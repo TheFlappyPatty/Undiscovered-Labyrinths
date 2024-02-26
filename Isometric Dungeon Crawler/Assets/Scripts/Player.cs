@@ -90,67 +90,70 @@ public class Player : MonoBehaviour
         AmmoBar.value = Ammo;
         HealthBar.fillAmount = Health / 100;
         Health = Mathf.Clamp(Health, 0, 100);
-        if (ControllerConnected == false)
+        if(Movetoggle == false)
         {
-            var MoveDir = new Vector3(Input.GetAxis("Horizontal") * MovementSpeed, -1, Input.GetAxis("Vertical") * MovementSpeed);
-            if (Movetoggle == false) PlayerController.Move(MoveDir * Time.deltaTime);
-
-            CrossHair.transform.localPosition = transform.localPosition + new Vector3(Input.GetAxis("Mouse X") * 1, 0, Input.GetAxis("Mouse Y") * 1);
-            transform.LookAt(CrossHair.transform);
-            if (Input.GetAxis("Fire1") == 1 && shooting == true)
+            if (ControllerConnected == false)
             {
-                if (gun != Gun.Shotgun)
+                var MoveDir = new Vector3(Input.GetAxis("Horizontal") * MovementSpeed, -1, Input.GetAxis("Vertical") * MovementSpeed);
+                if (Movetoggle == false) PlayerController.Move(MoveDir * Time.deltaTime);
+                CrossHair.transform.localPosition = transform.localPosition + new Vector3(Input.GetAxis("Mouse X") * 1, 0, Input.GetAxis("Mouse Y"));
+                transform.LookAt(CrossHair.transform);
+                if (Input.GetAxis("Fire1") == 1 && shooting == true)
                 {
-                    StartCoroutine(Shooting(Currentammo, CurrentFirerate, CurrentDamage, CurrentVelocity, CurrentlifeTime));
-                }
-                else
-                {
-                    var shots = 5;
-                    while (shots-- > 0)
+                    if (gun != Gun.Shotgun)
                     {
                         StartCoroutine(Shooting(Currentammo, CurrentFirerate, CurrentDamage, CurrentVelocity, CurrentlifeTime));
                     }
+                    else
+                    {
+                        var shots = 5;
+                        while (shots-- > 0)
+                        {
+                            StartCoroutine(Shooting(Currentammo, CurrentFirerate, CurrentDamage, CurrentVelocity, CurrentlifeTime));
+                        }
+                    }
+                    shooting = false;
                 }
-                shooting = false;
             }
-        }
-        else
-        {
-            var MoveDir = new Vector3(Input.GetAxis("ControllerH") * MovementSpeed, -1, Input.GetAxis("ControllerV") * MovementSpeed);
-            if (Movetoggle == false) PlayerController.Move(MoveDir * Time.deltaTime);
-
-            CrossHair.transform.localPosition = transform.localPosition + new Vector3(-Input.GetAxis("ControllerVRIght") * 2, 0, -Input.GetAxis("ControllerHRight") * 2);
-            transform.LookAt(CrossHair.transform);
-            if (Input.GetAxis("Fire1C") == 1 && shooting == true)
+            else
             {
-                if (gun != Gun.Shotgun)
+                var MoveDir = new Vector3(Input.GetAxis("ControllerH") * MovementSpeed, -1, Input.GetAxis("ControllerV") * MovementSpeed);
+                if (Movetoggle == false) PlayerController.Move(MoveDir * Time.deltaTime);
+
+                CrossHair.transform.localPosition = transform.localPosition + new Vector3(-Input.GetAxis("ControllerVRIght") * 2, 0, -Input.GetAxis("ControllerHRight") * 2);
+                transform.LookAt(CrossHair.transform);
+                if (Input.GetAxis("Fire1C") == 1 && shooting == true)
                 {
-                    StartCoroutine(Shooting(Currentammo, CurrentFirerate, CurrentDamage, CurrentVelocity, CurrentlifeTime));
-                }
-                else
-                {
-                    var shots = 5;
-                    while (shots-- > 0)
+                    if (gun != Gun.Shotgun)
                     {
                         StartCoroutine(Shooting(Currentammo, CurrentFirerate, CurrentDamage, CurrentVelocity, CurrentlifeTime));
                     }
+                    else
+                    {
+                        var shots = 5;
+                        while (shots-- > 0)
+                        {
+                            StartCoroutine(Shooting(Currentammo, CurrentFirerate, CurrentDamage, CurrentVelocity, CurrentlifeTime));
+                        }
+                    }
+                    shooting = false;
                 }
-                shooting = false;
-            }
 
-            if (Input.GetButtonDown("Pause"))
-            {
-                if (GameIsPaused == true)
-                {
-                    unPause();
-                }
-                else
-                {
-                    Pause();
-                }
+
             }
         }
 
+        if (Input.GetButtonDown("Pause") || Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameIsPaused == true)
+            {
+                unPause();
+            }
+            else
+            {
+                Pause();
+            }
+        }
         if (Health <= 0)
         {
             die();
@@ -170,6 +173,7 @@ public class Player : MonoBehaviour
     {
         GameIsPaused = true;
         Time.timeScale = 0;
+        Movetoggle = true;
         PauseMenu.enabled = true;
         PlayerUi.enabled = false;
     }
@@ -177,6 +181,7 @@ public class Player : MonoBehaviour
     {
         GameIsPaused = false;
         Time.timeScale = 1;
+        Movetoggle = false;
         PauseMenu.enabled = false;
         PlayerUi.enabled = true;
     }
