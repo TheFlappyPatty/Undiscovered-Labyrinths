@@ -87,6 +87,7 @@ public class Weaponscript : MonoBehaviour
         if(other.transform.tag == "Player")
         {
             player = other.gameObject;
+            player.GetComponent<Player>().RestoreDefault();
             GiveGun();
             Destroy(gameObject);
         }

@@ -95,12 +95,22 @@ public class Player : MonoBehaviour
             var MoveDir = new Vector3(Input.GetAxis("Horizontal") * MovementSpeed, -1, Input.GetAxis("Vertical") * MovementSpeed);
             if (Movetoggle == false) PlayerController.Move(MoveDir * Time.deltaTime);
 
-            gameObject.transform.eulerAngles = new Vector3(0, dummypoint.transform.eulerAngles.y, 0);
-            dummypoint.transform.LookAt(mousepoint.transform.position);
-            mousepoint.transform.position = playerCam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 50));
+            CrossHair.transform.localPosition = transform.localPosition + new Vector3(Input.GetAxis("Mouse X") * 1, 0, Input.GetAxis("Mouse Y") * 1);
+            transform.LookAt(CrossHair.transform);
             if (Input.GetAxis("Fire1") == 1 && shooting == true)
             {
-                StartCoroutine(Shooting(Currentammo, CurrentFirerate, CurrentDamage, CurrentVelocity, CurrentlifeTime));
+                if (gun != Gun.Shotgun)
+                {
+                    StartCoroutine(Shooting(Currentammo, CurrentFirerate, CurrentDamage, CurrentVelocity, CurrentlifeTime));
+                }
+                else
+                {
+                    var shots = 5;
+                    while (shots-- > 0)
+                    {
+                        StartCoroutine(Shooting(Currentammo, CurrentFirerate, CurrentDamage, CurrentVelocity, CurrentlifeTime));
+                    }
+                }
                 shooting = false;
             }
         }
