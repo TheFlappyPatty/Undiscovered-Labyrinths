@@ -260,6 +260,7 @@ public class Player : MonoBehaviour
       CurrentVelocity = 15;
       CurrentlifeTime = 10;
       defaultisequiped = true;
+        if(gun == Gun.LazerBeam)Destroy(gameObject.GetComponent<LineRenderer>());
         gun = Gun.None;
     }
 
