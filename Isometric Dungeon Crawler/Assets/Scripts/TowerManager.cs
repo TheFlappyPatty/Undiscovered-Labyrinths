@@ -29,15 +29,11 @@ public class TowerManager : MonoBehaviour
         {
             Debug.Log("Player Wins");
         }
-        //if (Spawnenemyamount >= enemyamountleft)
-        //{
-        //    while (Spawnenemyamount >= enemyamountleft)
-        //    {
-        //        var enemie = Instantiate(Enemies[Random.Range(0, Enemies.Length)], Spawners[Random.Range(0, Spawners.Length)].transform.position, Quaternion.identity, null);
-        //        enemie.GetComponent<EnemyAi>().Encounter = gameObject;
-        //        enemyamountleft++;
-        //    }
-        //}
+        if (Spawnenemyamount >= enemyamountleft)
+        {
+                Instantiate(Enemies[Random.Range(0, Enemies.Length - 1)], Spawners[Random.Range(0,Spawners.Length - 1)].transform.position, Quaternion.identity, null).GetComponent<EnemyAi>().Encounter = gameObject;
+                enemyamountleft++;
+        }
     }
     public void ActivateTowers()
     {

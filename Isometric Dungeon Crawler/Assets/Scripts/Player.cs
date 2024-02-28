@@ -54,7 +54,6 @@ public class Player : MonoBehaviour
     private bool GameIsPaused = false;
 
 
-
     public void Start()
     {
         StartCoroutine(CheckpointCheck());
@@ -187,31 +186,33 @@ public class Player : MonoBehaviour
     }
 
     //When the player shoots the gun
-    public IEnumerator Shooting(Rounds Ammotype,float fireRate,int Damage,int velocity,float lifetime)
+    public IEnumerator Shooting(Rounds Ammotype, float fireRate, int Damage, int velocity, float lifetime)
     {
-     if (Rounds.lazar == Ammotype) {
-            if(shooting == true)
+        if (Rounds.lazar == Ammotype)
+        {
+            if (shooting == true)
             {
                 shooting = false;
 
-            RaycastHit target;
-            Ray ray = new Ray(transform.position, transform.forward.normalized);
-            if (Physics.Raycast(ray, out target, 50))
-            {
-                GetComponent<LineRenderer>().SetPosition(0,transform.position);
-                GetComponent<LineRenderer>().SetPosition(1,target.point);
-                GetComponent<LineRenderer>().enabled = true;
-                if (target.collider.tag == "Enemy")
+                RaycastHit target;
+                Ray ray = new Ray(transform.position, transform.forward.normalized);
+                if (Physics.Raycast(ray, out target, 50))
                 {
-                    target.transform.gameObject.GetComponent<EnemyAi>().Health -= Damage;
-                }
-                    else if (target.collider.tag == "ActivePillar")
+                    GetComponent<LineRenderer>().SetPosition(0, transform.position);
+                    GetComponent<LineRenderer>().SetPosition(1, target.point);
+                    GetComponent<LineRenderer>().enabled = true;
+                    if (target.collider.tag == "Enemy")
+                    {
+                        target.transform.gameObject.GetComponent<EnemyAi>().Health -= Damage;
+                    }
+                    if (target.collider.tag == "ActivePillar")
                     {
                         BossScript.bossHealth -= Damage;
-                    } else if (target.collider.tag == "Tower")
-                    {
-                        target.transform.GetComponent<TowerControler>().Health -= Damage;
                     }
+                    //if (target.collider.tag == "Tower")
+                    //{
+                    //    target.transform.GetComponent<TowerControler>().Health -= Damage;
+                    //}
                 }
                 Ammo -= 1;
                 yield return new WaitForSeconds(0.05f);
@@ -219,10 +220,12 @@ public class Player : MonoBehaviour
                 shooting = true;
             }
 
-        } else {
+        }
+        else
+        {
             shooting = false;
 
-                var bullet = Instantiate(StandardAmmo, transform.position, transform.rotation, null);
+            var bullet = Instantiate(StandardAmmo, transform.position, transform.rotation, null);
             bullet.gameObject.GetComponent<Bullets>().Type = Ammotype;
             bullet.gameObject.GetComponent<Bullets>().bulletspeed = velocity;
             if (gun == Gun.MiniGun) bullet.transform.eulerAngles = new Vector3(bullet.transform.eulerAngles.x, bullet.transform.eulerAngles.y + Random.Range(-10, 10), bullet.transform.eulerAngles.z);
@@ -233,10 +236,11 @@ public class Player : MonoBehaviour
             Ammo -= 1;
             yield return new WaitForSeconds(60 / fireRate);
             shooting = true;
-     }
-        if(Ammo <= 0 && defaultisequiped == false)
+        }
+        //
+        if (Ammo <= 0 && defaultisequiped == false)
         {
-            if(Currentammo == Rounds.lazar)
+            if (Currentammo == Rounds.lazar)
             {
                 Destroy(gameObject.GetComponent<LineRenderer>());
             }
@@ -253,18 +257,15 @@ public class Player : MonoBehaviour
     //resets the gun to defaults
     public void RestoreDefault()
     {
-        WeaponCurrent = Currentammo;
+      defaultisequiped = true;
+      gun = Gun.None;
       Currentammo = Rounds.standard;
+      WeaponCurrent = Currentammo;
       CurrentFirerate = 480;
       CurrentDamage = 10;
       CurrentVelocity = 15;
       CurrentlifeTime = 10;
-      defaultisequiped = true;
-        if(gun == Gun.LazerBeam)Destroy(gameObject.GetComponent<LineRenderer>());
-        gun = Gun.None;
     }
-
-
 
 
     //Defines weapon stats and ammoType

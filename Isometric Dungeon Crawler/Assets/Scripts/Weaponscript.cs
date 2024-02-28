@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Android.Types;
+using Unity.VisualScripting;
 using UnityEngine;
 
 // this script does things
@@ -10,6 +12,7 @@ public class Weaponscript : MonoBehaviour
     private GameObject player;
     public GameObject Weapon;
     public GameObject[] WeaponModels;
+    public static bool Cooldown;
     public void Awake()
     {
             var RandomInput = Random.Range(1, 5);
@@ -86,11 +89,20 @@ public class Weaponscript : MonoBehaviour
     {
         if(other.transform.tag == "Player")
         {
+            if(Cooldown == false)
+            {
             player = other.gameObject;
             player.GetComponent<Player>().RestoreDefault();
             GiveGun();
             Destroy(gameObject);
+            }
         }
+    }
+    public static IEnumerator CoolDownTimer()
+    {
+        Cooldown = true;
+        yield return new WaitForSeconds(1f);
+        Cooldown = false;
     }
     public void GiveGun()
     {
